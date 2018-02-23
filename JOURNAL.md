@@ -5,7 +5,7 @@ Format : [fait/à faire] TACHE	Durée (en minutes; remplacer les ??)
 Vous pouvez ajouter vos propres tâches si vous le jugez utile
 (p.ex. décomposition plus fine).
 
-- [V] créer le JOURNAL                                    	        1
+|- [V] créer le JOURNAL                 |                   	        1
 - [ ] lire complètement le descriptif général                  	??
 - [ ] s'inscrire en binôme                                      	??
 - [ ] fusionner les deux projets (y compris les fichiers JOURNAL)	??

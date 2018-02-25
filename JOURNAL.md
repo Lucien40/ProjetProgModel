@@ -1,6 +1,6 @@
 # PROGRESSION
 
-Format : [fait/à faire] TACHE	Durée (en minutes; remplacer les ??)
+Format : [fait/à faire] TACHE	Durée (en minutes; remplacer les ??) 
 
 Vous pouvez ajouter vos propres tâches si vous le jugez utile
 (p.ex. décomposition plus fine).

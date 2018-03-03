@@ -1,5 +1,15 @@
-all: vectorTest
+CXX=g++
+CC=$(CXX)
+CXXFLAGS = -std=c++11 -pedantic -Wall # supprimer -ansi
+CXXFLAGS += -O2
+CXXFLAGS += -g
+
+all: vecteurTest
 
 vecteur.o: vecteur.cpp vecteur.h
-#vectorTest.o: vectorTest.cpp vecteur.h
-#vectorTest: vectorTest.o vecteur.o
+vecteurTest.o: vecteurTest.cpp vecteur.h
+
+vecteurTest: vecteurTest.o vecteur.o
+
+run:
+	vecteurTest

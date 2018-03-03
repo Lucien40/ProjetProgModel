@@ -1,9 +1,9 @@
-#include <vector>
 #ifndef vecteur_h
 #define vecteur_h
+#include <vector>
 
 
-class Vecteur {
+class vecteur {
 private:
 /* data */
 unsigned int dimension = 0;
@@ -23,7 +23,7 @@ unsigned int getDimension();
 
 double get(unsigned int i);
 
-bool compare(Vecteur v);
+bool compare(vecteur v);
 
 };
 

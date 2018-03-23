@@ -1,50 +1,55 @@
+
 #include <vector>
 #include <iostream>
 using namespace std;
 
-#include "vecteur.h"
+#include "Vecteur.h"
 
 
-void vecteur::augmente(double d){
+void Vecteur::augmente(double d){
 	data.push_back(d);
 	dimension++;
 }
 
-void vecteur::setCoord(size_t i, double d){
+void Vecteur::setCoord(size_t i, double d){
 	try{
 		if(i < dimension) {
 			data[i] = d;
-		}else throw i;
-	}catch(int i) {
+		}else throw 1;
+	}catch(int j) {
 		cerr << "index " << i << " out of bounds!" << endl;
 	}
 }
 
-void vecteur::affiche(){
-	for (auto& d : data) {
-		cout << d << ' ';
-	}
-}
 
-unsigned int vecteur::getDimension(){
+
+unsigned int Vecteur::getDimension(){
 	return dimension;
 }
 
-double vecteur::get(unsigned int i){
+double Vecteur::get(unsigned int i){
 	try{
 		if(i < dimension) {
 			return data[i];
 		}else throw 1;
-	}catch(int i) {
+	}catch(int j) {
 		cerr << "index out of bounds!" << endl;
 		return 0;
 	}
 }
 
-bool vecteur::compare(vecteur v){
+bool Vecteur::Vecteur v){
 	for (size_t i = 0; i < v.getDimension(); i++) {
 		/* code */
 		if(v.get(i) != data[i]) return false;
 	}
 	return true;
+}
+
+std::ostream& operator<<(std::ostream& outf, Vecteur const& v);
+	for (size_t i = 0; i < v.getDimension); i++) {
+		/* code */
+	} {
+		cout << d << ' ';
+	}
 }

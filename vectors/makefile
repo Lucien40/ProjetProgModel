@@ -1,8 +1,15 @@
-CXX=g++
-CC=$(CXX)
-CXXFLAGS = -std=c++11 -pedantic -Wall # supprimer -ansi
-CXXFLAGS += -O2
-CXXFLAGS += -g
+CXX = g++
+CC  = $(CXX)
+
+CXXFLAGS = -std=c++11  # C++11, ou autre suivant vos préférences
+
+
+#
+CXXFLAGS += -pedantic -Wall       # pour les purs et durs
+CXXFLAGS += -g                    # pour debugger
+# CXXFLAGS += -pg                 # pour profiler
+# LDFLAGS  += -pg                 # pour profiler
+# CXXFLAGS += -O2                 # pour optimiser la vitesse
 
 all: vecteurTest
 

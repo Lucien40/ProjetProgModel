@@ -1,30 +1,46 @@
-#ifndef vecteur_h
-#define vecteur_h
+#ifndef Vecteur_h
+#define Vecteur_h
 #include <vector>
+#include <iostream>
+#include <initializer_list>
+
+class Vecteur {
+  private:
+  /* data */
+    std::size_t dimension = 0;
+    std::vector<double> data;;
+
+  public:
+
+    // constructeurs
 
 
-class vecteur {
-private:
-/* data */
-unsigned int dimension = 0;
+    Vecteur(std::size_t dimension);
+    Vecteur(double x, double y, double z);
+    Vecteur(std::initializer_list<double> const&);
 
+    // methodes
 
-std::vector<double> data;
+    void augmente(double d);    // ajoute une coordonee au vecteur
 
+    void setCoord(std::size_t i, double d);     // assigne une coordonee
 
-public:
-void augmente(double d);
+    std::size_t getDimension();     // rend la dimension du vecteur
 
-void setCoord(std::size_t i, double d);
+    double get(unsigned int i);     // rend la i-ieme valeur
 
-void affiche();
+    bool operator==(Vecteur v);
 
-unsigned int getDimension();
+    Vecteur operator+=(Vecteur autre) const;
 
-double get(unsigned int i);
+    Vecteur operator-=(Vecteur autre) const;
 
-bool compare(vecteur v);
+    Vecteur oppose() const;
+
+    Vecteur operator*=(double) const;
 
 };
+
+std::ostream& operator<<(std::ostream&, Vecteur const&);     // affiche un vecteur en mode consecutif
 
 #endif

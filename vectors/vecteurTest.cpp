@@ -21,22 +21,18 @@ int main(int argc, char const *argv[]) {
 
 	vect3 = vect1;
 
-	cout << "Vecteur 1 : ";
-	vect1.affiche();
-	cout << endl;
+	cout << "Vecteur 1 : " << vect1 << endl;
 
-	cout << "Vecteur 2 : ";
-	vect2.affiche();
-	cout << endl;
+	cout << "Vecteur 2 : " << vect2 << endl;
 
 	cout << "Le Vecteur 1 est ";
-	if (vect1.compare(vect2)) {
+	if (vect1==vect2) {
 		cout << "égal au";
 	} else {
 		cout << "différent du";
 	}
 	cout << " Vecteur 2," << endl << "et est ";
-	if (not vect1.compare(vect3)) {
+	if (not (vect1==vect3)) {
 		cout << "différent du";
 	} else {
 		cout << "égal au";

@@ -1,6 +1,7 @@
 #ifndef Vecteur_h
 #define Vecteur_h
 #include <vector>
+#include <string>
 #include <iostream>
 
 
@@ -15,11 +16,13 @@ void augmente(double d);
 
 void setCoord(std::size_t i, double d);
 
-unsigned int getDimension();
+unsigned int getDimension() const;
 
-double get(unsigned int i);
+double get(unsigned int i) const;
 
-bool compare(Vecteur v);
+bool operator==(Vecteur const&) const;
+
+std::string toString() const;
 
 };
 

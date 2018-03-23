@@ -4,12 +4,12 @@ CXXFLAGS = -std=c++11 -pedantic -Wall # supprimer -ansi
 CXXFLAGS += -O2
 CXXFLAGS += -g
 
-all: vecteurTest
+all: VecteurTest
 
-vecteur.o: vecteur.cpp vecteur.h
-vecteurTest.o: vecteurTest.cpp vecteur.h
+Vecteur.o: Vecteur.cpp Vecteur.h
+VecteurTest.o: VecteurTest.cpp Vecteur.h
 
-vecteurTest: vecteurTest.o vecteur.o
+VecteurTest: VecteurTest.o Vecteur.o
 
 run:
-	vecteurTest
+	VecteurTest

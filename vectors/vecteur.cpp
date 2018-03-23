@@ -2,15 +2,15 @@
 #include <iostream>
 using namespace std;
 
-#include "vecteur.h"
+#include "Vecteur.h"
 
 
-void vecteur::augmente(double d){
+void Vecteur::augmente(double d){
 	data.push_back(d);
 	dimension++;
 }
 
-void vecteur::setCoord(size_t i, double d){
+void Vecteur::setCoord(size_t i, double d){
 	try{
 		if(i < dimension) {
 			data[i] = d;
@@ -20,17 +20,17 @@ void vecteur::setCoord(size_t i, double d){
 	}
 }
 
-void vecteur::affiche(){
+void Vecteur::affiche(){
 	for (auto& d : data) {
 		cout << d << ' ';
 	}
 }
 
-unsigned int vecteur::getDimension(){
+unsigned int Vecteur::getDimension(){
 	return dimension;
 }
 
-double vecteur::get(unsigned int i){
+double Vecteur::get(unsigned int i){
 	try{
 		if(i < dimension) {
 			return data[i];
@@ -41,7 +41,7 @@ double vecteur::get(unsigned int i){
 	}
 }
 
-bool vecteur::compare(vecteur v){
+bool Vecteur::compare(Vecteur v){
 	for (size_t i = 0; i < v.getDimension(); i++) {
 		/* code */
 		if(v.get(i) != data[i]) return false;

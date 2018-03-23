@@ -1,2 +1,1 @@
-this is a test
- 
+# Modelisation de systémes d'oscillateurs couplés

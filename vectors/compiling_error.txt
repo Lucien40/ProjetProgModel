@@ -1,13 +1,1 @@
-C:\Users\huber\AppData\Local\Temp\ccNA3zve.o: In function `main':
-C:/Users/huber/github/ProjetProgModel/vectors/VecteurTest.cpp:16: undefined reference to `Vecteur::augmente(double)'
-C:/Users/huber/github/ProjetProgModel/vectors/VecteurTest.cpp:16: undefined reference to `Vecteur::augmente(double)'
-C:/Users/huber/github/ProjetProgModel/vectors/VecteurTest.cpp:16: undefined reference to `Vecteur::augmente(double)'
-C:/Users/huber/github/ProjetProgModel/vectors/VecteurTest.cpp:17: undefined reference to `Vecteur::setCoord(unsigned long long, double)'
-C:/Users/huber/github/ProjetProgModel/vectors/VecteurTest.cpp:20: undefined reference to `Vecteur::augmente(double)'
-C:/Users/huber/github/ProjetProgModel/vectors/VecteurTest.cpp:20: undefined reference to `Vecteur::augmente(double)'
-C:/Users/huber/github/ProjetProgModel/vectors/VecteurTest.cpp:20: undefined reference to `Vecteur::augmente(double)'
-C:/Users/huber/github/ProjetProgModel/vectors/VecteurTest.cpp:24: undefined reference to `operator<<(std::ostream&, Vecteur const&)'
-C:/Users/huber/github/ProjetProgModel/vectors/VecteurTest.cpp:26: undefined reference to `operator<<(std::ostream&, Vecteur const&)'
-C:/Users/huber/github/ProjetProgModel/vectors/VecteurTest.cpp:29: undefined reference to `Vecteur::operator==(Vecteur const&) const'
-C:/Users/huber/github/ProjetProgModel/vectors/VecteurTest.cpp:35: undefined reference to `Vecteur::operator==(Vecteur const&) const'
-collect2.exe: error: ld returned 1 exit status
+

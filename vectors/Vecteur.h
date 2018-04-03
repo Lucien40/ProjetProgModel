@@ -31,12 +31,13 @@ public:
     double get(unsigned int i) const;
 
 
+    //OPERATORS
 
     bool operator==(Vecteur const &) const;
 
     Vecteur& operator+=(Vecteur const &);  // returns a vecteur reference because operation has to have value (thus reference)
 
-    const Vecteur operator-() const;
+    const Vecteur operator-() const; // cannot be on other side of equal (-bla = foo)
 
     Vecteur& operator-=(Vecteur const &);
 
@@ -49,6 +50,16 @@ public:
 std::ostream& operator<<(std::ostream &, Vecteur const &);
 
 double operator^(Vecteur const& , Vecteur const&);
+
+const Vecteur operator+(Vecteur,Vecteur const&);
+
+const Vecteur operator-(Vecteur,Vecteur const&);
+
+const Vecteur operator*(double ,Vecteur const&);
+
+
+
+
 
 
 #endif

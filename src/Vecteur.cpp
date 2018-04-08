@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-#include "Vecteur.h"
+#include "../inc/Vecteur.h"
 
 
 void Vecteur::augmente(double d){
@@ -11,20 +11,20 @@ void Vecteur::augmente(double d){
   dimension++;
 }
 
-Vecteur::Vecteur(unsigned int dim) {
+Vecteur::Vecteur(unsigned int dim) :
+data(dim){
     dimension = dim;
-    data = vector(dim);
 }
 
 Vecteur::Vecteur(initializer_list<double> const& list) {
     for (auto a : list){
-        this.augmente(d);
+        this->augmente(a);
     }
 }
 
-Vecteur::Vecteur(double x, double y, double z) {
+Vecteur::Vecteur(double x, double y, double z) : data({x,y,z}){
     dimension =3;
-    data = vector({x,y,z});
+
 }
 
 void Vecteur::setCoord(size_t i, double d){
@@ -67,13 +67,11 @@ bool Vecteur::operator==(Vecteur const& v) const{
   }
   return true;
 }
-void Vecteur::set(unsigned int i, double d){
-    data[i] = d;
-}
+
 
 Vecteur& Vecteur::operator+=(Vecteur const & vAdded){
     try {
-        if(dimension == vAdded.getDimension()) throw out_of_range ("mismatched dimensions");
+        if(dimension != vAdded.getDimension()) throw out_of_range ("mismatched dimensions");
         for (unsigned int i = 0; i < dimension; ++i) {
             data[i] += vAdded.get(i);
         }
@@ -91,9 +89,9 @@ const Vecteur Vecteur::operator-() const{
     return retour;
 }
 
-Vecteur& Vecteur::operator-=(Vecteur const &){
+Vecteur& Vecteur::operator-=(Vecteur const & vAdded){
     try {
-        if(dimension == vAdded.getDimension()) throw out_of_range ("mismatched dimensions");
+        if(dimension != vAdded.getDimension()) throw out_of_range ("mismatched dimensions");
         for (unsigned int i = 0; i < dimension; ++i) {
             data[i] -= vAdded.get(i);
         }
@@ -115,10 +113,31 @@ std::ostream& operator<<(std::ostream& output, Vecteur const& v){
   return output;
 }
 
-double operator^(Vecteur const& , Vecteur const&);
+double operator^(Vecteur const& v1, Vecteur const& v2){
+    double result(0.0);
+    try {
+        unsigned int d = v1.getDimension();
+        if(v1.getDimension()!=v2.getDimension()) throw out_of_range ("mismatched dimensions");
+            for (unsigned int i = 0; i < d; ++i) {
+                result += (v1.get(i)*v2.get(i));
+            }
+    }catch (const std::out_of_range& oor){
+        cerr << "Out of range error: " << oor.what() << endl;
+    }
+    return result;
+}
 
-const Vecteur operator+(Vecteur,Vecteur const&);
+const Vecteur operator+(Vecteur result ,Vecteur const& vAdded){
+    result += vAdded;
+    return result;
+}
 
-const Vecteur operator-(Vecteur,Vecteur const&);
+const Vecteur operator-(Vecteur result ,Vecteur const& vAdded){
+    result -= vAdded;
+    return result;
+}
 
-const Vecteur operator*(double ,Vecteur const&);
+const Vecteur operator*(double d, Vecteur vAdded){
+    vAdded *= d;
+    return vAdded;
+}

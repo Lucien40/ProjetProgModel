@@ -114,3 +114,11 @@ std::ostream& operator<<(std::ostream& output, Vecteur const& v){
   output << v.toString();
   return output;
 }
+
+double operator^(Vecteur const& , Vecteur const&);
+
+const Vecteur operator+(Vecteur,Vecteur const&);
+
+const Vecteur operator-(Vecteur,Vecteur const&);
+
+const Vecteur operator*(double ,Vecteur const&);

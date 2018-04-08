@@ -1,11 +1,11 @@
-#include "Vecteur.h"
+#include "../Headers/Vecteur.h"
 #include <iostream>
 using namespace std;
 
 int main(int argc, char const *argv[]) {
-	Vecteur vect1;
-	Vecteur vect2;
-	Vecteur vect3;
+	Vecteur vect1(1.0,0.0,-0.1);
+	Vecteur vect2(2.6,3.5,4.1);
+	Vecteur vect3(3);
 
 	/* Cette partie
 	 * (1) pourrait être écrite autrement, par exemple avec des
@@ -13,11 +13,11 @@ int main(int argc, char const *argv[]) {
 	 * (2) sera revue dans 2 semaines (constructeurs, surcharge des opérateurs).
 	 */
 	// v1 = (1.0, 2.0, -0.1)
-	vect1.augmente(1.0); vect1.augmente(0.0); vect1.augmente(-0.1);
+
 	vect1.setCoord(1, 2.0); // pour tester setCoord()
 
 	// v2 = (2.6, 3.5,  4.1)
-	vect2.augmente(2.6); vect2.augmente(3.5); vect2.augmente(4.1);
+
 
 	vect3 = vect1;
 
@@ -38,5 +38,10 @@ int main(int argc, char const *argv[]) {
 		cout << "égal au";
 	}
 	cout << " Vecteur 3." << endl;
+
+
+	vect1 = 2 *	 vect2 ;
+
+	cout << vect1;
 	return 0;
 }

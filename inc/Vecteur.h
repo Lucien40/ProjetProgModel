@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
-
+#include <initializer_list>
 
 class Vecteur {
 private:
@@ -16,7 +16,7 @@ public:
 
     //Constructors
 
-    Vecteur(initializer_list<double> const& );
+    Vecteur(std::initializer_list<double> const& );
 
     Vecteur(unsigned int);
 
@@ -55,7 +55,7 @@ const Vecteur operator+(Vecteur,Vecteur const&);
 
 const Vecteur operator-(Vecteur,Vecteur const&);
 
-const Vecteur operator*(double ,Vecteur const&);
+const Vecteur operator*(double ,Vecteur);
 
 
 

@@ -1,4 +1,4 @@
-#include "../Headers/Vecteur.h"
+#include "Vecteur.h"
 #include <iostream>
 using namespace std;
 
@@ -43,5 +43,6 @@ int main(int argc, char const *argv[]) {
 	vect1 = 2 *	 vect2 ;
 
 	cout << vect1;
+    cout << 'echo';
 	return 0;
 }

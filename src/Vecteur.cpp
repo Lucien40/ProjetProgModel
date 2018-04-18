@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-#include "../inc/Vecteur.h"
+#include "Vecteur.h"
 
 
 void Vecteur::augmente(double d){
@@ -24,7 +24,6 @@ Vecteur::Vecteur(initializer_list<double> const& list) {
 
 Vecteur::Vecteur(double x, double y, double z) : data({x,y,z}){
     dimension =3;
-
 }
 
 void Vecteur::setCoord(size_t i, double d){
@@ -37,7 +36,7 @@ void Vecteur::setCoord(size_t i, double d){
   }
 }
 
-std::string Vecteur::toString() const{
+std::string Vecteur::affiche() const {
   std::string s;
   for (auto& d : data) {
     s += to_string(d) + ' '; // TODO too many zeros after decimal
@@ -109,7 +108,7 @@ Vecteur& Vecteur::operator*=(double d){
 }
 
 std::ostream& operator<<(std::ostream& output, Vecteur const& v){
-  output << v.toString();
+    output << v.affiche();
   return output;
 }
 

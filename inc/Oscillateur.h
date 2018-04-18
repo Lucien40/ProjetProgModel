@@ -2,7 +2,8 @@
 // Created by lucien on 4/4/18.
 //
 
-#include "Vecteur.h"
+#include "../inc/Vecteur.h"
+#include <iostream>
 
 
 class Oscillateur {
@@ -12,15 +13,27 @@ private:
     Vecteur P;
     Vecteur Pp;
 
-    Vecteur evolution(Vecteur,Vecteur,int);
 
 public:
-    Oscillateur(int N) :
-    N(N),
-    P(N),
-    Pp(N){
-    }
+    Oscillateur(Vecteur, Vecteur);
+
+    void affiche(std::ostream &out) const;
+
+    void afficheEvolution(double t) const;
+
+    Vecteur getPara() const;
+
+    Vecteur getVit() const;
+
+    void setPara(Vecteur);
+
+    void setVit(Vecteur);
+
+    virtual Vecteur evolution(double) const = 0;
+
 };
+
+std::ostream &operator<<(std::ostream &, Oscillateur const &);
 
 #ifndef PROJETPROGMODEL_OSCILLATEUR_H
 #define PROJETPROGMODEL_OSCILLATEUR_H

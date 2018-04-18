@@ -43,7 +43,7 @@ public:
 
     Vecteur& operator*=(double);
 
-    std::string toString() const;
+    std::string affiche() const;
 
 };
 

@@ -9,15 +9,16 @@
 
 #include "Oscillateur.h"
 
-class Pendule : Oscillateur {
+class Pendule : public Oscillateur {
 private:
     double g;
     double L;
     double m;
+    double la;
 
 
 public:
-    Pendule(Vecteur, Vecteur, double, double, double);
+    Pendule(Vecteur &, Vecteur &, double = 9.8, double = 1, double = 1, double = 1);
 
     virtual Vecteur evolution(double) const override;
 };

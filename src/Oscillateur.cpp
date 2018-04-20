@@ -27,7 +27,7 @@ void Oscillateur::setVit(Vecteur Pp) {
 }
 
 
-Oscillateur::Oscillateur(Vecteur P, Vecteur Pp) : P(P), Pp(Pp) {}
+Oscillateur::Oscillateur(Vecteur &P, Vecteur &Pp) : P(P), Pp(Pp) {}
 
 void Oscillateur::affiche(ostream &out) const {
     out << "Oscillateur" << endl;

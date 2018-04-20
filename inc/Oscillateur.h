@@ -3,19 +3,22 @@
 //
 
 #include "../inc/Vecteur.h"
+#include "Dessinable.h"
 #include <iostream>
 
 
-class Oscillateur {
+class Oscillateur : public Dessinable {
 
-private:
+protected:
     unsigned int N;
     Vecteur P;
     Vecteur Pp;
 
 
 public:
-    Oscillateur(Vecteur, Vecteur);
+    Oscillateur(Vecteur &, Vecteur &);
+
+    virtual ~Oscillateur() {}
 
     void affiche(std::ostream &out) const;
 

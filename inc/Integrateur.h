@@ -5,7 +5,7 @@
 #ifndef PENDULUM_INTEGRATEUR_H
 #define PENDULUM_INTEGRATEUR_H
 
-#endif //PENDULUM_INTEGRATEUR_H
+
 
 #include "Oscillateur.h"
 
@@ -15,3 +15,5 @@ private:
 public:
     virtual void integre(Oscillateur &, double, double) const =0;
 };
+
+#endif //PENDULUM_INTEGRATEUR_H

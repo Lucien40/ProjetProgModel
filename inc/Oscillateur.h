@@ -2,9 +2,13 @@
 // Created by lucien on 4/4/18.
 //
 
-#include "../inc/Vecteur.h"
+#ifndef PROJETPROGMODEL_OSCILLATEUR_H
+#define PROJETPROGMODEL_OSCILLATEUR_H
+
+#include "Vecteur.h"
 #include "Dessinable.h"
 #include <iostream>
+#include <memory>
 
 
 class Oscillateur : public Dessinable {
@@ -13,12 +17,15 @@ protected:
     unsigned int N;
     Vecteur P;
     Vecteur Pp;
+    SupportADessin* vue;
 
 
 public:
-    Oscillateur(Vecteur &, Vecteur &);
+    Oscillateur(SupportADessin* vue, Vecteur & P, Vecteur & Pp);
 
     virtual ~Oscillateur() {}
+
+    virtual std::unique_ptr<Oscillateur> copie() const = 0;
 
     void affiche(std::ostream &out) const;
 
@@ -38,7 +45,6 @@ public:
 
 std::ostream &operator<<(std::ostream &, Oscillateur const &);
 
-#ifndef PROJETPROGMODEL_OSCILLATEUR_H
-#define PROJETPROGMODEL_OSCILLATEUR_H
+
 
 #endif //PROJETPROGMODEL_OSCILLATEUR_H

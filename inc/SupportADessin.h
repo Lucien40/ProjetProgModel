@@ -5,11 +5,10 @@
 #ifndef PENDULUM_SUPPORTADESSIN_H
 #define PENDULUM_SUPPORTADESSIN_H
 
-#endif //PENDULUM_SUPPORTADESSIN_H
 
-#include "Pendule.h"
-#include "Ressort.h"
-#include "System.h"
+class Pendule;
+class Ressort;
+class System;
 
 class SupportADessin {
 public:
@@ -19,6 +18,8 @@ public:
 
     virtual void dessine(Ressort const &) = 0;
 
-    virtual void dessine(Systeme const &) = 0;
+    virtual void dessine(System const &) = 0;
     // ... autres choses que vous voudriez dessiner...
 };
+
+#endif //PENDULUM_SUPPORTADESSIN_H

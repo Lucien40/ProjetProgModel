@@ -12,11 +12,20 @@ Vecteur Pendule::evolution(double) const {
     return v;
 }
 
-Pendule::Pendule(Vecteur &P, Vecteur &Pp, double g, double m, double L, double la) :
-        Oscillateur(P, Pp),
+Pendule::Pendule(SupportADessin* vue,Vecteur &P, Vecteur &Pp, double g, double m, double L, double la) :
+
+        Oscillateur(vue,P, Pp),
         g(g),
         L(L),
         m(m),
         la(la) {
 
 }
+
+void Pendule::dessine(){
+    support->dessine(*this);
+}
+
+unique_ptr<Pendule> Pendule::clone() const {return unique_ptr<Pendule>(new Pendule(*this)); }
+
+unique_ptr<Oscillateur> Pendule::copie() const { return clone();}

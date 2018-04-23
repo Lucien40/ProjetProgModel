@@ -16,18 +16,8 @@ void System::dessine() {
 }
 
 void System::evolue(double t, double dt) {
-    std::cout << "hevl";
-
-    integre(*contenu[1], t, dt);
+    for (auto &o : contenu) {
+        Int.integre(*o, t, dt);
+    }
 }
 
-void System::integre(Oscillateur &o, double t, double dt) const {
-
-    std::cout << " " << o.getVit().getDimension() << '\n';
-    o.affiche(std::cout);
-    o.afficheEvolution(t);
-    //Vecteur nPar( o.getPara() + dt * o.getVit());
-
-    //o.setPara(nPar);
-    //o.setVit(nVit);
-}

@@ -22,7 +22,8 @@ private:
 
 public:
 
-    virtual ~Ressort() {}
+
+/*-------------------------Constructeur---------------------------*/
 
     Ressort(SupportADessin *support, Vecteur parametre, Vecteur vitesse, double raideur = 1, double masse = 1,
             double lamda = 1, Vecteur dir = Vecteur(1.0, 0.0, 0.0), Vecteur origine = Vecteur(0, 0, 0)) :
@@ -34,14 +35,43 @@ public:
             , O(origine) {
     }
 
-    virtual Vecteur evolution(double) const override;
+/*-------------------------Destructeur---------------------------*/
+    //Car classe polymorphique
+
+    virtual ~Ressort() {}
+
+/*------------------------Copie-----------------------------------*/
+    // Copie polymorphique pour collection heterogene
 
     std::unique_ptr <Ressort> clone() const;
 
-// voire une méthode template.... (plus tard dans le cours)
     virtual std::unique_ptr <Oscillateur> copie() const override;
 
+/*----------------------Methodes----------------------------------*/
+
     virtual void dessine() override;
+
+    virtual Vecteur evolution(double t) const override;
+
+/*----------------------Get---------------------------------------*/
+
+    double getRaideur() const;
+
+    double getMasse() const;
+
+    double getViscosite() const;
+
+    Vecteur getDirection() const;
+
+/*-------------------------Set------------------------------------*/
+
+    void setRaideur(double k);
+
+    void setMasse(double m);
+
+    void setViscosite(double la);
+
+    void setDirection(Vecteur a);
 };
 
 #endif //PENDULUM_RESSORT_H

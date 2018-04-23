@@ -1,7 +1,3 @@
-//
-// Created by lucien on 4/4/18.
-//
-
 #ifndef PROJETPROGMODEL_OSCILLATEUR_H
 #define PROJETPROGMODEL_OSCILLATEUR_H
 
@@ -16,39 +12,51 @@ class Oscillateur :
         public Dessinable {
 
 protected:
-    unsigned int N;
+
     Vecteur P;
-    Vecteur Pp;
+    Vecteur V;
 
 
 public:
-    // Constructor
 
-    Oscillateur(SupportADessin *support, Vecteur P, Vecteur Pp) :
+/*-------------------------Constructeur---------------------------*/
+
+    Oscillateur(SupportADessin *support, Vecteur P, Vecteur V) :
             Dessinable(support)
             , P(P)
-            , Pp(Pp) {}
+            , V(V) {}
 
+/*-------------------------Destructeur---------------------------*/
+    //Car class abstraite polymorphique
 
     virtual ~Oscillateur() {}
 
+/*------------------------Copie-----------------------------------*/
+// Copie polymorphique pour collection heterogene
     virtual std::unique_ptr <Oscillateur> copie() const = 0;
 
-    void affiche(std::ostream &out) const;
+/*----------------------Methodes----------------------------------*/
+
+    std::ostream &affiche(std::ostream &out) const;
 
     void afficheEvolution(double t) const;
+
+    virtual Vecteur evolution(double t) const = 0;
+
+    virtual void dessine() override; // herite de dessinable
+
+/*----------------------Get---------------------------------------*/
 
     Vecteur getPara() const;
 
     Vecteur getVit() const;
 
+/*-------------------------Set------------------------------------*/
+
     void setPara(Vecteur p);
 
     void setVit(Vecteur pp);
 
-    virtual Vecteur evolution(double t) const = 0;
-
-    virtual void dessine() override;
 
 };
 

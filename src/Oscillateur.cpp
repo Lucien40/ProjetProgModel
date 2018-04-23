@@ -3,7 +3,7 @@
 //
 
 #include "../inc/Oscillateur.h"
-#include "../inc/Vecteur.h"
+
 
 #include <iostream>
 #include <vector>
@@ -16,22 +16,23 @@ Vecteur Oscillateur::getPara() const {
 }
 
 Vecteur Oscillateur::getVit() const {
-    return Pp;
+    return V;
 }
 
 void Oscillateur::setPara(Vecteur P) {
     this->P = P;
 }
 
-void Oscillateur::setVit(Vecteur Pp) {
-    this->Pp = Pp;
+void Oscillateur::setVit(Vecteur V) {
+    this->V = V;
 }
 
 
-void Oscillateur::affiche(ostream &out) const {
+ostream &Oscillateur::affiche(ostream &out) const {
     out << "Oscillateur" << endl;
-    out << "Para: " << P << endl;
-    out << "Vitesse: " << Pp << endl;
+    out << "Para:    " << P << endl;
+    out << "Vitesse: " << V << endl;
+    return out;
 }
 
 void Oscillateur::afficheEvolution(double t) const {
@@ -42,8 +43,6 @@ void Oscillateur::dessine() {
     support->dessine(*this);
 }
 
-
 std::ostream &operator<<(std::ostream &out, Oscillateur const &o) {
-    o.affiche(out);
-    return out;
+    return o.affiche(out);
 }

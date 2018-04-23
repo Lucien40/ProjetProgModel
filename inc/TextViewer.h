@@ -5,7 +5,7 @@
 #ifndef PROJETPROGMODEL_TEXTVIEWER_H
 #define PROJETPROGMODEL_TEXTVIEWER_H
 #include <iostream>
-#include "SupportADessin.h"
+
 #include "Ressort.h"
 #include "Pendule.h"
 #include "System.h"

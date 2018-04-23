@@ -5,10 +5,7 @@
 #ifndef PENDULUM_SYSTEM_H
 #define PENDULUM_SYSTEM_H
 
-
-#include "Dessinable.h"
 #include "Oscillateur.h"
-#include "SupportADessin.h"
 #include "IntegrateurEulerCromer.h"
 #include <vector>
 #include <memory>

@@ -8,58 +8,66 @@
 
 class Vecteur {
 private:
-/* data */
+/*---------------------------Data-----------------------------*/
+
     unsigned int dimension;
     std::vector<double> data;
 
 public:
 
-    //Constructors
+/*--------------------------Constructeurs---------------------*/
 
-    Vecteur(std::initializer_list<double> const &list);
+    Vecteur(const std::initializer_list<double> &list);
 
     Vecteur(unsigned int dim);
 
-    Vecteur(double x,double y,double z);
+    Vecteur(double x, double y, double z);
+
+/*-------------------------Methodes---------------------------*/
 
     void augmente(double d);
 
+    std::ostream &affiche(std::ostream &sortie) const;
+
+/*-----------------------------Set----------------------------*/
+
     void setCoord(std::size_t i, double d);
+
+/*----------------------------Get-----------------------------*/
 
     unsigned int getDimension() const;
 
     double get(unsigned int i) const;
 
 
-    //OPERATORS
+/*-------------------------Operateurs-------------------------*/
 
     bool operator==(Vecteur const &) const;
 
-    Vecteur& operator+=(Vecteur const &);  // returns a vecteur reference because operation has to have value (thus reference)
+    Vecteur &
+    operator+=(Vecteur const &);  // returns a vecteur reference because operation has to have value (thus reference)
 
     const Vecteur operator-() const; // cannot be on other side of equal (-bla = foo)
 
-    Vecteur& operator-=(Vecteur const &);
+    Vecteur &operator-=(Vecteur const &);
 
-    Vecteur& operator*=(double);
-
-    std::string affiche() const;
+    Vecteur &operator*=(double d);
 
 };
 
-std::ostream& operator<<(std::ostream &, Vecteur const &);
+/*-------------------------Fonctions--------------------------*/
 
-double operator^(Vecteur const& , Vecteur const&);
+std::ostream &operator<<(std::ostream &, Vecteur const &);
 
-const Vecteur operator+(Vecteur,Vecteur const&);
+Vecteur operator^(Vecteur const &, Vecteur const &);
 
-const Vecteur operator-(Vecteur,Vecteur const&);
+double operator*(Vecteur const &, Vecteur const &);
 
-const Vecteur operator*(double ,Vecteur);
+const Vecteur operator+(Vecteur, Vecteur const &);
 
+const Vecteur operator-(Vecteur, Vecteur const &);
 
-
-
+const Vecteur operator*(double, Vecteur);
 
 
 #endif

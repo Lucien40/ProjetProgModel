@@ -16,30 +16,55 @@ private:
     double m;
     double la;
     Vecteur O;
-
+    Vecteur a;
 
 public:
 
-    virtual ~Pendule() {}
+
+/*-------------------------Constructeur---------------------------*/
 
     Pendule(SupportADessin *support, Vecteur parametre, Vecteur vitesse, double longeur = 1, double masse = 1,
-            double lamda = 1, Vecteur origine = Vecteur(0, 0, 0)) :
+            double lamda = 1, Vecteur origine = Vecteur(0, 0, 0), Vecteur plan = Vecteur(1, 0, 0)) :
             Oscillateur(support, parametre, vitesse)
             , L(longeur)
             , m(masse)
             , la(lamda)
-            , O(origine) {
+            , O(origine)
+            , a(plan) {
     }
+/*-------------------------Destructeur---------------------------*/
+    //Car classe polymorphique
 
+    virtual ~Pendule() {}
+
+/*------------------------Copie-----------------------------------*/
+// Copie polymorphique pour collection heterogene
 
     std::unique_ptr <Pendule> clone() const;
 
-// voire une méthode template.... (plus tard dans le cours)
     virtual std::unique_ptr <Oscillateur> copie() const override;
+
+/*----------------------Methodes----------------------------------*/
 
     virtual Vecteur evolution(double) const override;
 
     virtual void dessine() override;
+
+/*----------------------Get---------------------------------------*/
+
+    double getLongeur() const;
+
+    double getMasse() const;
+
+    double getViscosite() const;
+
+/*-------------------------Set------------------------------------*/
+
+    void setLongeur(double L);
+
+    void setMasse(double m);
+
+    void setViscosite(double la);
 };
 
 #endif //PENDULUM_PENDULE_H

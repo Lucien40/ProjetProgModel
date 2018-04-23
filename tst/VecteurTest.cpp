@@ -1,11 +1,11 @@
-#include "Vecteur.h"
+#include "../inc/Vecteur.h"
 #include <iostream>
 using namespace std;
 
-int main(int argc, char const *argv[]) {
+int main() {
 	Vecteur vect1(1.0,0.0,-0.1);
 	Vecteur vect2(2.6,3.5,4.1);
-	Vecteur vect3(3);
+
 
 	/* Cette partie
 	 * (1) pourrait être écrite autrement, par exemple avec des
@@ -19,7 +19,7 @@ int main(int argc, char const *argv[]) {
 	// v2 = (2.6, 3.5,  4.1)
 
 
-	vect3 = vect1;
+    Vecteur vect3(vect1);
 
 	cout << "Vecteur 1 : " << vect1 << endl;
 
@@ -43,6 +43,8 @@ int main(int argc, char const *argv[]) {
 	vect1 = 2 *	 vect2 ;
 
 	cout << vect1;
-    cout << 'echo';
+    cout << "echo ";
+
+    cout << vect1.getDimension();
 	return 0;
 }

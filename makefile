@@ -1,7 +1,9 @@
 CC := g++
 
-TARGET := OscillateurTest
-# VecteurTest
+TARGET := Ex9
+#VecteurTest
+
+#OscillateurTest
 
 SRC_DIR := src
 OBJ_DIR := obj

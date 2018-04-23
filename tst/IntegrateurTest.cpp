@@ -4,7 +4,7 @@
 
 #include "../inc/IntegrateurTest.h"
 
-int main(int argc, char const *argv[]) {
+int main() {
     Vecteur P({1, 2});
     Vecteur Pp({3, -5});
 

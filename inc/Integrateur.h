@@ -10,10 +10,8 @@
 #include "Oscillateur.h"
 
 class Integrateur {
-private:
-
 public:
-    virtual void integre(Oscillateur &, double, double) const =0;
+    virtual void integre(Oscillateur &o, double t, double dt) const =0;
 };
 
 #endif //PENDULUM_INTEGRATEUR_H

@@ -15,11 +15,21 @@
 
 class System : public Dessinable{
 public:
+    System(SupportADessin *support) :
+            Dessinable(support) {}
+
     void add(Oscillateur const& o);
     virtual ~System() {}
-private:
-    IntegrateurEulerCromer Int();
+
+    virtual void dessine() override;
     std::vector<std::unique_ptr<Oscillateur>> contenu;
+
+    void evolue(double t, double dt);
+
+private:
+    IntegrateurEulerCromer Int;
+
+    void integre(Oscillateur &o, double t, double dt) const;
 };
 
 #endif //PENDULUM_SYSTEM_H

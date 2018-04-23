@@ -9,16 +9,16 @@
 class Vecteur {
 private:
 /* data */
-    unsigned int dimension = 0;
+    unsigned int dimension;
     std::vector<double> data;
 
 public:
 
     //Constructors
 
-    Vecteur(std::initializer_list<double> const& );
+    Vecteur(std::initializer_list<double> const &list);
 
-    Vecteur(unsigned int);
+    Vecteur(unsigned int dim);
 
     Vecteur(double x,double y,double z);
 

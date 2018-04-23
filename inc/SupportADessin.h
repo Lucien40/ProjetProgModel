@@ -5,10 +5,12 @@
 #ifndef PENDULUM_SUPPORTADESSIN_H
 #define PENDULUM_SUPPORTADESSIN_H
 
-
+// Forward declaration to avoid circular includes
 class Pendule;
 class Ressort;
 class System;
+
+class Oscillateur;
 
 class SupportADessin {
 public:
@@ -19,6 +21,8 @@ public:
     virtual void dessine(Ressort const &) = 0;
 
     virtual void dessine(System const &) = 0;
+
+    virtual void dessine(Oscillateur const &) = 0;
     // ... autres choses que vous voudriez dessiner...
 };
 

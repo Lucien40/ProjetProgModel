@@ -7,25 +7,32 @@
 
 #include "Vecteur.h"
 #include "Dessinable.h"
+#include "SupportADessin.h"
 #include <iostream>
 #include <memory>
 
 
-class Oscillateur : public Dessinable {
+class Oscillateur :
+        public Dessinable {
 
 protected:
     unsigned int N;
     Vecteur P;
     Vecteur Pp;
-    SupportADessin* vue;
 
 
 public:
-    Oscillateur(SupportADessin* vue, Vecteur & P, Vecteur & Pp);
+    // Constructor
+
+    Oscillateur(SupportADessin *support, Vecteur P, Vecteur Pp) :
+            Dessinable(support)
+            , P(P)
+            , Pp(Pp) {}
+
 
     virtual ~Oscillateur() {}
 
-    virtual std::unique_ptr<Oscillateur> copie() const = 0;
+    virtual std::unique_ptr <Oscillateur> copie() const = 0;
 
     void affiche(std::ostream &out) const;
 
@@ -35,16 +42,17 @@ public:
 
     Vecteur getVit() const;
 
-    void setPara(Vecteur);
+    void setPara(Vecteur p);
 
-    void setVit(Vecteur);
+    void setVit(Vecteur pp);
 
-    virtual Vecteur evolution(double) const = 0;
+    virtual Vecteur evolution(double t) const = 0;
+
+    virtual void dessine() override;
 
 };
 
 std::ostream &operator<<(std::ostream &, Oscillateur const &);
-
 
 
 #endif //PROJETPROGMODEL_OSCILLATEUR_H

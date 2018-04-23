@@ -5,14 +5,18 @@
 #ifndef PENDULUM_DESSINABLE_H
 #define PENDULUM_DESSINABLE_H
 
-class SupportADessin;
+class SupportADessin;  // Forward declaration to avoid include loops
 
 class Dessinable {
 
 public:
-    Dessinable(SupportADessin* support)
+
+//Constructeur : A besoin d'un support pour savoir comment dessiner
+    Dessinable(SupportADessin *support) //Par ref car polymorphique
             : support(support)
     {}
+
+//Destructeur virtuel car class abstaite
     virtual ~Dessinable() {}
     virtual void dessine() = 0;
 

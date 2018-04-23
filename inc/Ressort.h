@@ -7,7 +7,6 @@
 
 
 #include "Oscillateur.h"
-#include "SupportADessin.h"
 #include "Constantes.h"
 #include <memory>
 
@@ -18,19 +17,31 @@ private:
     double k;
     double m;
     double la;
-    Vecteur direction;
-
+    Vecteur a;
+    Vecteur O;
 
 public:
-    Ressort(SupportADessin* vue, Vecteur & P, Vecteur & Pp, double = 1, double = 1, double =1,Vecteur = Vecteur(1.0, 0.0, 0.0));
+
+    virtual ~Ressort() {}
+
+    Ressort(SupportADessin *support, Vecteur parametre, Vecteur vitesse, double raideur = 1, double masse = 1,
+            double lamda = 1, Vecteur dir = Vecteur(1.0, 0.0, 0.0), Vecteur origine = Vecteur(0, 0, 0)) :
+            Oscillateur(support, parametre, vitesse)
+            , k(raideur)
+            , m(masse)
+            , la(lamda)
+            , a(dir)
+            , O(origine) {
+    }
 
     virtual Vecteur evolution(double) const override;
-    std::unique_ptr<Ressort> clone() const;
+
+    std::unique_ptr <Ressort> clone() const;
 
 // voire une méthode template.... (plus tard dans le cours)
-    virtual std::unique_ptr<Oscillateur> copie() const override ;
+    virtual std::unique_ptr <Oscillateur> copie() const override;
 
-    virtual void dessine() override ;
+    virtual void dessine() override;
 };
 
 #endif //PENDULUM_RESSORT_H

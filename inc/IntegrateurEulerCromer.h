@@ -12,7 +12,7 @@ private:
 
 public:
 
-    virtual void integre(Oscillateur &, double, double) const override;
+    virtual void integre(Oscillateur &o, double t, double dt) const override;
 
 };
 

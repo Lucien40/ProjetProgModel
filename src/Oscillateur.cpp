@@ -3,8 +3,8 @@
 //
 
 #include "../inc/Oscillateur.h"
-
 #include "../inc/Vecteur.h"
+
 #include <iostream>
 #include <vector>
 
@@ -28,8 +28,6 @@ void Oscillateur::setVit(Vecteur Pp) {
 }
 
 
-Oscillateur::Oscillateur(SupportADessin* vue, Vecteur &P, Vecteur &Pp) : Dessinable(vue),P(P), Pp(Pp) {}
-
 void Oscillateur::affiche(ostream &out) const {
     out << "Oscillateur" << endl;
     out << "Para: " << P << endl;
@@ -38,6 +36,10 @@ void Oscillateur::affiche(ostream &out) const {
 
 void Oscillateur::afficheEvolution(double t) const {
     cout << "sa fonction d'evolution donne a t = " << t << " : " << evolution(t);
+}
+
+void Oscillateur::dessine() {
+    support->dessine(*this);
 }
 
 

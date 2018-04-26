@@ -2,17 +2,17 @@
 // Created by huber on 17-Apr-18.
 //
 
-#include "../inc/IntegrateurTest.h"
+#include "../inc/Oscillateur.h"
 
 int main() {
     Vecteur P({1, 2});
     Vecteur Pp({3, -5});
 
-    Oscillateur o(P, Pp);
+    //Oscillateur o(P, Pp);
 
-    cout << o;
+    //cout << o;
 
-    o.afficheEvolution(2);
+    //o.afficheEvolution(2);
 
 
 }

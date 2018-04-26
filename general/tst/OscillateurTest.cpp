@@ -12,11 +12,11 @@ int main(int argc, char const *argv[]) {
     Vecteur P({1, 2});
     Vecteur Pp({3, -5});
 
-    Pendule o(P, Pp);
+    //Pendule o(P, Pp);
 
-    cout << o;
+    //cout << o;
 
-    o.afficheEvolution(2);
+    //o.afficheEvolution(2);
 
 
 }

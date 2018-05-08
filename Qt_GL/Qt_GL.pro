@@ -28,8 +28,8 @@ HEADERS += \
     ../general/inc/Dessinable.h \
     ../general/inc/SupportADessin.h \
     ../general/inc/Pendule.h \
-../general/inc/Ressort.h \
-../general/inc/System.h
+    ../general/inc/Ressort.h \
+    ../general/inc/System.h
 
 RESOURCES += \
     resource.qrc

@@ -1,7 +1,3 @@
-#include <vector>
-#include <iostream>
-#include <string>
-
 using namespace std;
 
 #include "../inc/Vecteur.h"
@@ -40,6 +36,14 @@ ostream &Vecteur::affiche(ostream &sortie) const {
     return sortie;
 }
 
+double Vecteur::norme2() const{
+    double norm(0);
+    for(auto d: data){
+        norm += (d*d);
+    }
+    return sqrt(norm);
+}
+
 /*----------------Getters---------------------*/
 
 unsigned int Vecteur::getDimension() const {
@@ -51,7 +55,7 @@ double Vecteur::get(unsigned int i) const {
         if (i < dimension) {
             return data[i];
         } else { throw i; }
-    } catch (int i) {
+    } catch (unsigned int i) {
         cerr << "index " << i << " out of bounds!" << endl;
         return 0;
     }
@@ -107,7 +111,7 @@ const Vecteur Vecteur::operator-() const {
 
 Vecteur &Vecteur::operator-=(Vecteur const &vAdded) {
     try {
-        if (dimension != vAdded.getDimension()) throw out_of_range("mismatched dimensions");
+        if (dimension != vAdded.getDimension()) throw out_of_range("mismatched dimensions " );
         for (unsigned int i = 0; i < dimension; ++i) {
             data[i] -= vAdded.get(i);
         }
@@ -124,6 +128,13 @@ Vecteur &Vecteur::operator*=(double d) {
     return *this;
 }
 
+
+Vecteur &Vecteur::operator/=(double d) {
+    for (unsigned int i = 0; i < dimension; ++i) {
+        data[i] /= d;
+    }
+    return *this;
+}
 /*----------------Fonctions---------------------*/
 
 std::ostream &operator<<(std::ostream &output, Vecteur const &v) {
@@ -170,6 +181,16 @@ const Vecteur operator-(Vecteur result, Vecteur const &vAdded) {
 
 const Vecteur operator*(double d, Vecteur vAdded) {
     vAdded *= d;
+    return vAdded;
+}
+
+const Vecteur operator*(Vecteur vAdded, double d) {
+    vAdded *= d;
+    return vAdded;
+}
+
+const Vecteur operator/( Vecteur vAdded,double d) {
+    vAdded /= d;
     return vAdded;
 }
 

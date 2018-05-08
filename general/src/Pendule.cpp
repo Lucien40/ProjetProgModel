@@ -9,7 +9,8 @@ using namespace std;
 
 Vecteur Pendule::evolution(double) const {
     Vecteur v(1);
-    v.setCoord(0, (-(g.get(0) / L)) * sin(P.get(0)) - (la / (m * pow(L, 2))) * V.get(0));
+//(-(g.get(2) / L)) * sin(P.get(0))- (la / (m * pow(L, 2))) *( V.get(0))
+    v.setCoord(0,  (-(g.get(2) / L)) * sin(P.get(0))- (la / (m * pow(L, 2))) *( V.get(0)));
     return v;
 }
 
@@ -25,6 +26,14 @@ double Pendule::getViscosite() const {
     return la;
 }
 
+Vecteur Pendule::getPosition() const {
+    return O + L* cos(P.get(0))*g*(1.0/g.norme2()) + L* sin(P.get(0))*a;
+}
+
+Vecteur Pendule::getOrigine() const{
+    return O;
+}
+
 void Pendule::setLongeur(double L) {
     this->L = L;
 }
@@ -38,6 +47,7 @@ void Pendule::setViscosite(double la) {
 }
 
 void Pendule::dessine() {
+
     support->dessine(*this);
 }
 

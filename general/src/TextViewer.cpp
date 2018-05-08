@@ -13,6 +13,7 @@ void TextViewer::dessine(Ressort const &aDessiner) {
     flot << "Viscosite        : " << aDessiner.getViscosite() << '\n';
     flot << "Masse            : " << aDessiner.getMasse() << '\n';
     flot << "Raideur          : " << aDessiner.getRaideur() << '\n';
+    flot << "Evo " << aDessiner.evolution(0);
     flot << "-------------------------" << '\n';
 
 }
@@ -32,6 +33,7 @@ void TextViewer::dessine(Pendule const &aDessiner) {
     flot << "Viscosite        : " << aDessiner.getViscosite() << '\n';
     flot << "Masse            : " << aDessiner.getMasse() << '\n';
     flot << "Longeur          : " << aDessiner.getLongeur() << '\n';
+    //flot << "Evo " << aDessiner.evolution(0);
     flot << "-------------------------" << '\n';
 
 }

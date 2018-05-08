@@ -17,7 +17,8 @@ public:
     : QOpenGLWidget(parent)
     , system(&vue)
 
-  {system.add(Pendule(&vue, Vecteur({0.5}), Vecteur({1})));
+  {system.add(Pendule(&vue, Vecteur({0.5}), Vecteur({0.5})));
+      setMouseTracking(true);
   }
   virtual ~GLWidget() {}
 
@@ -29,6 +30,8 @@ private:
 
   // Méthodes de gestion d'évènements
   virtual void keyPressEvent(QKeyEvent* event) override;
+  virtual void mousePressEvent(QMouseEvent* event) override;
+  virtual void mouseMoveEvent(QMouseEvent* event)  override;
   virtual void timerEvent(QTimerEvent* event)  override;
 
   // Méthodes de gestion interne
@@ -45,7 +48,7 @@ private:
   // objets à dessiner, faire évoluer
 
   System system;
-
+QPoint lastMousePosition;
 
 
 };

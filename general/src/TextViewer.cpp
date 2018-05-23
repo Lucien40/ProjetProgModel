@@ -38,7 +38,24 @@ void TextViewer::dessine(Pendule const &aDessiner) {
 
 }
 
+void TextViewer::dessine(const ChariotPenduleRessort &aDessiner){
+    flot << "Parametre (angle): " << aDessiner.getPara() << '\n';
+    flot << "Vitesse          : " << aDessiner.getVit() << '\n';
+    flot << "Viscosite        : " << aDessiner.getLa() << '\n';
+    flot << "Masse 1          : " << aDessiner.getMasse1() << '\n';
+    flot << "Longeur          : " << aDessiner.getLongeur() << '\n';
+    flot << "-------------------------" << '\n';
+}
+
 void TextViewer::dessine(Oscillateur const &aDessiner) {
     aDessiner.affiche(flot);
+    flot << "-------------------------" << '\n';
+}
+
+void TextViewer::dessine(PenduleDouble const &aDessiner){
+    flot << "Parametre (angle): " << aDessiner.getPara() << '\n';
+    flot << "Vitesse          : " << aDessiner.getVit() << '\n';
+    flot << "Masse 1           : " << aDessiner.getMasse1() << '\n';
+
     flot << "-------------------------" << '\n';
 }

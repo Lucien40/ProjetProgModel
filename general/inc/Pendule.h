@@ -24,7 +24,7 @@ public:
 /*-------------------------Constructeur---------------------------*/
 
     Pendule(SupportADessin *support, Vecteur parametre, Vecteur vitesse, double longeur = 10, double masse = 1,
-            double lamda = 0.1, Vecteur origine = Vecteur(0, 0, 0), Vecteur plan = Vecteur(1, 0, 0)) :
+            double lamda = 10, Vecteur origine = Vecteur(0, 0, 0), Vecteur plan = Vecteur(1, 0, 0)) :
             Oscillateur(support, parametre, vitesse)
             , L(longeur)
             , m(masse)

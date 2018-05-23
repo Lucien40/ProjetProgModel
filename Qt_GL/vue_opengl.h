@@ -1,11 +1,13 @@
 #ifndef VUEOPENGL_H
 #define VUEOPENGL_H
 
-#include <QOpenGLShaderProgram> // Classe qui regroupe les fonctions OpenGL liées aux shaders
+#include <QGLShaderProgram> // Classe qui regroupe les fonctions OpenGL liées aux shaders
 #include <QMatrix4x4>
 #include "Ressort.h"
 #include "Pendule.h"
 #include "System.h"
+#include "Chariotpenduleressort.h"
+#include "PenduleDouble.h"
 
 class VueOpenGL : public SupportADessin {
  public:
@@ -17,6 +19,10 @@ class VueOpenGL : public SupportADessin {
     virtual void dessine(System const &a_dessiner) override;
 
     virtual void dessine(Oscillateur const &a_dessiner) override;
+
+    virtual void dessine(ChariotPenduleRessort const& aDessiner) override;
+
+    virtual void dessine(PenduleDouble const& aDessiner) override;
 
   // méthodes de (ré-)initialisation
   void init();
@@ -36,7 +42,7 @@ class VueOpenGL : public SupportADessin {
 
  private:
   // Un shader OpenGL encapsulé dans une classe Qt
-  QOpenGLShaderProgram prog;
+  QGLShaderProgram prog;
 
   // Caméra
   QMatrix4x4 matrice_vue;

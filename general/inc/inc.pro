@@ -13,4 +13,6 @@ HEADERS += \
     SupportADessin.h \
     System.h \
     TextViewer.h \
-    Vecteur.h
+    Vecteur.h \
+    Chariotpenduleressort.h \
+    PenduleDouble.h

@@ -9,10 +9,45 @@ void VueOpenGL::dessine(Pendule const& a_dessiner)
   QMatrix4x4 matrice;
   matrice.setToIdentity();
   matrice.translate(a_dessiner.getPosition().get(0),a_dessiner.getPosition().get(1),a_dessiner.getPosition().get(2));
-
   dessineCube(matrice);
+
   matrice.setToIdentity();
   dessineLine(a_dessiner.getOrigine(),a_dessiner.getPosition(),matrice);
+}
+
+
+void VueOpenGL::dessine(const ChariotPenduleRessort &a_dessiner){
+    QMatrix4x4 matrice;
+   matrice.setToIdentity();
+    matrice.translate(a_dessiner.getPositionChariot().get(0),a_dessiner.getPositionChariot().get(1),a_dessiner.getPositionChariot().get(2));
+    dessineCube(matrice);
+
+    matrice.setToIdentity();
+    matrice.translate(a_dessiner.getPositionPendule().get(0),a_dessiner.getPositionPendule().get(1),a_dessiner.getPositionPendule().get(2));
+    dessineCube(matrice);
+
+    matrice.setToIdentity();
+    dessineLine(a_dessiner.getOrigine(),a_dessiner.getPositionChariot(),matrice);
+
+    matrice.setToIdentity();
+    dessineLine(a_dessiner.getPositionPendule(),a_dessiner.getPositionChariot(),matrice);
+}
+
+void VueOpenGL::dessine(const PenduleDouble &a_dessiner){
+    QMatrix4x4 matrice;
+   matrice.setToIdentity();
+    matrice.translate(a_dessiner.getPositionM1().get(0),a_dessiner.getPositionM1().get(1),a_dessiner.getPositionM1().get(2));
+    dessineCube(matrice);
+
+    matrice.setToIdentity();
+    matrice.translate(a_dessiner.getPositionM2().get(0),a_dessiner.getPositionM2().get(1),a_dessiner.getPositionM2().get(2));
+    dessineCube(matrice);
+
+    matrice.setToIdentity();
+    dessineLine(a_dessiner.getOrigine(),a_dessiner.getPositionM1(),matrice);
+
+    matrice.setToIdentity();
+    dessineLine(a_dessiner.getPositionM2(),a_dessiner.getPositionM1(),matrice);
 }
 
 void VueOpenGL::dessine(Ressort const &aDessiner) {
@@ -61,8 +96,8 @@ void VueOpenGL::init()
    *   - applique la couleur qu'on lui donne
    */
 
-  prog.addShaderFromSourceFile(QOpenGLShader::Vertex,   ":/vertex_shader.glsl");
-  prog.addShaderFromSourceFile(QOpenGLShader::Fragment, ":/fragment_shader.glsl");
+  prog.addShaderFromSourceFile(QGLShader::Vertex,   ":/vertex_shader.glsl");
+  prog.addShaderFromSourceFile(QGLShader::Fragment, ":/fragment_shader.glsl");
 
   /* Identifie les deux attributs du shader de cet exemple
    * (voir vertex_shader.glsl).

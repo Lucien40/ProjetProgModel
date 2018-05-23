@@ -15,4 +15,6 @@ Ressort.cpp \
 SupportADessin.cpp \
 System.cpp \
 TextViewer.cpp \
-Vecteur.cpp
+Vecteur.cpp \
+    Chariotpenduleressort.cpp \
+    PenduleDouble.cpp

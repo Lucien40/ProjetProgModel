@@ -40,6 +40,16 @@ void GLWidget::paintGL()
   system.dessine();
 }
 
+// =====================================================================
+
+void GLWidget::addOscillator(Oscillateur &o){
+    system.add(o);
+}
+
+const VueOpenGL* GLWidget::getVue() const{
+
+    return &vue;
+}
 
 // ======================================================================
 void GLWidget::keyPressEvent(QKeyEvent* event)
@@ -111,6 +121,8 @@ void GLWidget::keyPressEvent(QKeyEvent* event)
   update(); // redessine
 }
 
+
+
 // ======================================================================
 void GLWidget::timerEvent(QTimerEvent* event)
 {
@@ -158,8 +170,6 @@ void GLWidget::mouseMoveEvent(QMouseEvent* event)
     update();
   }
 }
-
-
 
 void GLWidget::mousePressEvent(QMouseEvent* event)
 {

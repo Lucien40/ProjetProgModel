@@ -18,11 +18,14 @@ public:
     , system(&vue)
 
   {//system.add(Pendule(&vue, Vecteur({1.5}), Vecteur({0})));
-      system.add(ChariotPenduleRessort(&vue,Vecteur({1.5,0}), Vecteur({4,3})));
-      system.add(PenduleDouble(&vue,Vecteur({0.0,0.1}),Vecteur({0,0})));
+      //system.add(ChariotPenduleRessort(&vue,Vecteur({1.5,0}), Vecteur({4,3})));
+      //system.add(PenduleDouble(&vue,Vecteur({0.0,0.1}),Vecteur({0,0})));
       setMouseTracking(true);
   }
   virtual ~GLWidget() {}
+
+  void addOscillator(Oscillateur &o);
+  const VueOpenGL* getVue() const;
 
 private:
   // Les 3 méthodes clés de la classe QOpenGLWidget à réimplémenter
@@ -50,7 +53,11 @@ private:
    // objets à dessiner, faire évoluer
 
    System system;
- QPoint lastMousePosition;
+   QPoint lastMousePosition;
+
+
+
+
 
 
  };

@@ -19,7 +19,11 @@ INCLUDEPATH = ../general/inc
 SOURCES += \
     main_qt_gl.cc \
     glwidget.cc \
-    vue_opengl.cc
+    vue_opengl.cc \
+    gui.cpp \
+    dialog.cpp \
+    mainwindow.cpp \
+    penduletab.cpp
 
 HEADERS += \
     glwidget.h \
@@ -29,7 +33,16 @@ HEADERS += \
     ../general/inc/SupportADessin.h \
     ../general/inc/Pendule.h \
     ../general/inc/Ressort.h \
-    ../general/inc/System.h
+    ../general/inc/System.h \
+    gui.h \
+    dialog.h \
+    mainwindow.h \
+    penduletab.h
 
 RESOURCES += \
     resource.qrc
+
+FORMS += \
+    dialog.ui \
+    mainwindow.ui \
+    penduletab.ui

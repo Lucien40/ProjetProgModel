@@ -1,15 +1,21 @@
 #include <QApplication>
 #include <QPushButton>
-#include "glwidget.h"
+#include "mainwindow.h"
 
 int main(int argc, char* argv[])
 {
   QApplication a(argc, argv);
-  GLWidget w;
-  w.show();
 
-  QPushButton bouton("Salut les Zéros, la forme ?");
-  bouton.show();
+
+  //GLWidget w;
+
+
+
+  //QPushButton bouton("Salut les Zéros, la forme ?",&fenetre);
+  //w.show();
+
+  MainWindow m;
+  m.show();
 
   return a.exec();
 }

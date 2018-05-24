@@ -32,7 +32,7 @@ public:
                           double           masse2 = 10,
                           double            lamda = 10,
                           double               mu = 1,
-                          double                k = 1,
+                          double                k = 10,
                           Vecteur         origine = Vecteur(0, 0, 0),
                           Vecteur            plan = Vecteur(1.0, 0, 0)) :
 

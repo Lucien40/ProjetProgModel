@@ -1,13 +1,14 @@
 #ifndef CHARIOTPENDULERESSORT_H
 #define CHARIOTPENDULERESSORT_H
 
-
 #include "Oscillateur.h"
 #include "Constantes.h"
+
 #include <memory>
 #include <cmath>
 
 class ChariotPenduleRessort : public Oscillateur {
+
 private:
     double  L; // longueur du ressort
     double m1; // masse du chariot
@@ -28,8 +29,8 @@ public:
                           Vecteur       parametre, 
                           Vecteur         vitesse, 
                           double          longeur = 10,
-                          double           masse1 = 100,
-                          double           masse2 = 10,
+                          double           masse1 = 10,
+                          double           masse2 = 1,
                           double            lamda = 10,
                           double               mu = 1,
                           double                k = 10,
@@ -61,25 +62,29 @@ public:
 
 /*----------------------Methodes----------------------------------*/
 
-    virtual Vecteur evolution(double) const override;
+    virtual Vecteur evolution(double t, Vecteur P, Vecteur V)const  override;
 
     virtual void dessine() override;
 
+    virtual std::ostream& affiche(std::ostream &flot) const override;
+
 /*----------------------Get---------------------------------------*/
 
-    double getLongeur() const { return L;};
+    double getLongeur() const;
 
-    double getMasse1() const { return m1;};
+    double getMasse1()  const;
 
-    double getMasse2() const { return m2;};
+    double getMasse2()  const;
 
-    double getLa() const { return la;};
+    double getLa()      const;
 
     Vecteur getPositionChariot() const;
 
     Vecteur getPositionPendule() const;
 
     Vecteur getOrigine() const ;
+
+    Vecteur getAxis() const;
 
 /*-------------------------Set------------------------------------*/
 

@@ -1,14 +1,11 @@
-//
-// Created by huber on 18-Apr-18.
-//
-
 #ifndef PENDULUM_RESSORT_H
 #define PENDULUM_RESSORT_H
 
-
 #include "Oscillateur.h"
 #include "Constantes.h"
+
 #include <memory>
+#include <cmath>
 
 class Ressort : public Oscillateur {
 
@@ -25,8 +22,15 @@ public:
 
 /*-------------------------Constructeur---------------------------*/
 
-    Ressort(SupportADessin *support, Vecteur parametre, Vecteur vitesse, double raideur = 1, double masse = 1,
-            double lamda = 1, Vecteur dir = Vecteur(1.0, 0.0, 0.0), Vecteur origine = Vecteur(0, 0, 0)) :
+    Ressort(SupportADessin *support,
+            Vecteur parametre,
+            Vecteur vitesse,
+            double raideur  = 1,
+            double masse    = 1,
+            double lamda    = 0,
+            Vecteur dir     = Vecteur(0.0, 0.0, -1.0),
+            Vecteur origine = Vecteur(0, 0, 0)) :
+
             Oscillateur(support, parametre, vitesse)
             , k(raideur)
             , m(masse)
@@ -51,27 +55,33 @@ public:
 
     virtual void dessine() override;
 
-    virtual Vecteur evolution(double t) const override;
+    virtual Vecteur evolution(double t, Vecteur P, Vecteur V) const override;
+
+    virtual std::ostream& affiche(std::ostream &flot) const override;
 
 /*----------------------Get---------------------------------------*/
 
-    double getRaideur() const;
+    double getRaideur()     const;
 
-    double getMasse() const;
+    double getMasse()       const;
 
-    double getViscosite() const;
+    double getViscosite()   const;
 
-    Vecteur getDirection() const;
+    Vecteur getDirection()  const;
+
+    Vecteur getPosition()   const;
+
+    Vecteur getOrigine()    const;
 
 /*-------------------------Set------------------------------------*/
 
-    void setRaideur(double k);
+    void setRaideur     (double k);
 
-    void setMasse(double m);
+    void setMasse       (double m);
 
-    void setViscosite(double la);
+    void setViscosite   (double la);
 
-    void setDirection(Vecteur a);
+    void setDirection   (Vecteur a);
 };
 
 #endif //PENDULUM_RESSORT_H

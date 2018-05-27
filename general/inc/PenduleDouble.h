@@ -13,8 +13,6 @@ private:
     double m1; // masse du chariot
     double m2; // masse au bout du pendule
 
-    double M;
-
     Vecteur O; // vecteur origine
     Vecteur a;
 
@@ -28,17 +26,16 @@ public:
                           Vecteur         vitesse,
                           double          longeur1 = 10,
                           double          longeur2 = 10,
-                          double            masse1 = 10,
-                          double            masse2 = 10,
-                          Vecteur         origine = Vecteur(0, 0, 0),
-                          Vecteur            plan = Vecteur(1, 0, 0)) :
+                          double            masse1 = 1,
+                          double            masse2 = 1,
+                          Vecteur          origine = Vecteur(0, 0, 0),
+                          Vecteur             plan = Vecteur(1, 0, 0)) :
 
             Oscillateur(support, parametre, vitesse)
             , L1(longeur1)
             , L2(longeur2)
             , m1(masse1)
             , m2(masse2)
-            , M(m1 + m2)
             , O(origine)
             , a(plan){
     }
@@ -57,34 +54,40 @@ public:
 
 /*----------------------Methodes----------------------------------*/
 
-    virtual Vecteur evolution(double) const override;
+    virtual Vecteur evolution(double t, Vecteur P, Vecteur V) const override;
 
     virtual void dessine() override;
 
+    virtual std::ostream& affiche(std::ostream &flot) const override;
+
 /*----------------------Get---------------------------------------*/
 
-    double getLongeur1() const { return L1;};
+    double getLongeur1()    const;
 
-    double getLongeur2() const { return L2;};
+    double getLongeur2()    const;
 
-    double getMasse1() const { return m1;};
+    double getMasse1()      const;
 
-    double getMasse2() const { return m2;};
-
+    double getMasse2()      const;
 
     Vecteur getPositionM1() const;
 
     Vecteur getPositionM2() const;
 
-    Vecteur getOrigine() const ;
+    Vecteur getOrigine()    const;
+
+    Vecteur getAxis()       const;
 
 /*-------------------------Set------------------------------------*/
 
     void setLongeur1(double L);
 
-    void setMasse(double m);
+    void setLongeur2(double L);
 
-    void setViscosite(double la);
+    void setMass1(double m);
+
+    void setMass2(double m);
+
 };
 
 

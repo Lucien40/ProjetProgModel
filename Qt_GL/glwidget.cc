@@ -3,14 +3,26 @@
 #include <QMatrix4x4>
 #include "glwidget.h"
 
-// ======================================================================
+/*=========================== Methodes utilitaires =====================*/
+
+void GLWidget::addOscillator(Oscillateur &o){
+    system.add(o);
+}
+
+VueOpenGL* GLWidget::getVue() {
+
+    return &vue;
+}
+
+/*========================= OpenGlwidget methodes ======================*/
+
 void GLWidget::initializeGL()
 {
   vue.init();
   timerId = startTimer(20);
+
 }
 
-// ======================================================================
 void GLWidget::resizeGL(int width, int height)
 {
   /* On commance par dire sur quelle partie de la 
@@ -33,25 +45,16 @@ void GLWidget::resizeGL(int width, int height)
   vue.setProjection(matrice);
 }
 
-// ======================================================================
+
 void GLWidget::paintGL()
 {
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   system.dessine();
+  vue.dessineAxes();
 }
 
-// =====================================================================
+/*=========================== Methodes Gestion event ===================*/
 
-void GLWidget::addOscillator(Oscillateur &o){
-    system.add(o);
-}
-
-const VueOpenGL* GLWidget::getVue() const{
-
-    return &vue;
-}
-
-// ======================================================================
 void GLWidget::keyPressEvent(QKeyEvent* event)
 {
   constexpr double petit_angle(5.0); // en degrés
@@ -122,8 +125,6 @@ void GLWidget::keyPressEvent(QKeyEvent* event)
 }
 
 
-
-// ======================================================================
 void GLWidget::timerEvent(QTimerEvent* event)
 {
   Q_UNUSED(event);
@@ -134,7 +135,7 @@ void GLWidget::timerEvent(QTimerEvent* event)
   update();
 }
 
-// ======================================================================
+
 void GLWidget::pause()
 {
   if (timerId == 0) {

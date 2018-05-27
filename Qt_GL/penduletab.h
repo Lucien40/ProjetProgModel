@@ -19,15 +19,22 @@ public:
     explicit PenduleTab(GLWidget * w, QWidget *parent = 0);
     ~PenduleTab();
 
+
+
 private:
     Ui::PenduleTab *ui;
     Pendule* p;
-    GLWidget* w;
+
 
 public slots:
     void updateAngle(double d);
-    void addToSystem();
-
+    void addToSystem(GLWidget *w);
+    void setAngle(int i);
+    void setAngle(double i);
+    void updateVit(double d);
+    void updateMass(double d);
+    void updateLa(double d);
+    void updateLen(double d);
 
 
 };

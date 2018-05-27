@@ -1,30 +1,34 @@
-//
-// Created by huber on 20-Apr-18.
-//
-
 #ifndef PENDULUM_SYSTEM_H
 #define PENDULUM_SYSTEM_H
 
 #include "Oscillateur.h"
-#include "IntegrateurEulerCromer.h"
-#include <vector>
+#include "IntegrateurNewmark.h"
+
 #include <memory>
 
 class System : public Dessinable{
 public:
     System(SupportADessin *support) :
-            Dessinable(support) {}
+            Dessinable(support),
+            Int(0.01)
+    {}
 
-    void add(Oscillateur const& o);
     virtual ~System() {}
 
+    void add(Oscillateur const& o);
+
     virtual void dessine() override;
-    std::vector<std::unique_ptr<Oscillateur>> contenu;
+
+    std::ostream &affiche(std::ostream &flot) const;
 
     void evolue(double t, double dt);
 
+    std::vector<std::unique_ptr<Oscillateur>> contenu; //Casse l'encapsulation mais plus simple
+
+
 private:
-    IntegrateurEulerCromer Int;
+
+    IntegrateurNewmark Int;
 
     void integre(Oscillateur &o, double t, double dt) const;
 };

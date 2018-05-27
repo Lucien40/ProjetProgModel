@@ -20,10 +20,11 @@ SOURCES += \
     main_qt_gl.cc \
     glwidget.cc \
     vue_opengl.cc \
-    gui.cpp \
-    dialog.cpp \
     mainwindow.cpp \
-    penduletab.cpp
+    penduletab.cpp \
+    ressortTab.cpp \
+    penduleDoubleTab.cpp \
+    GLSphere.cpp
 
 HEADERS += \
     glwidget.h \
@@ -34,15 +35,16 @@ HEADERS += \
     ../general/inc/Pendule.h \
     ../general/inc/Ressort.h \
     ../general/inc/System.h \
-    gui.h \
-    dialog.h \
     mainwindow.h \
-    penduletab.h
+    penduletab.h \
+    ressortTab.h \
+    penduleDoubleTab.h \
+    GLSphere.h
 
 RESOURCES += \
     resource.qrc
 
 FORMS += \
-    dialog.ui \
-    mainwindow.ui \
-    penduletab.ui
+    penduletab.ui \
+    ressortTab.ui \
+    penduleDoubleTab.ui

@@ -1,32 +1,8 @@
-//
-// Created by lucien on 4/4/18.
-//
-
 #include "../inc/Oscillateur.h"
-
-
-#include <iostream>
-#include <vector>
 
 using namespace std;
 
-
-Vecteur Oscillateur::getPara() const {
-    return P;
-}
-
-Vecteur Oscillateur::getVit() const {
-    return V;
-}
-
-void Oscillateur::setPara(Vecteur P) {
-    this->P = P;
-}
-
-void Oscillateur::setVit(Vecteur V) {
-    this->V = V;
-}
-
+/*===================== Methodes ========================*/
 
 ostream &Oscillateur::affiche(ostream &out) const {
     out << "Oscillateur" << endl;
@@ -36,12 +12,35 @@ ostream &Oscillateur::affiche(ostream &out) const {
 }
 
 void Oscillateur::afficheEvolution(double t) const {
-    cout << "sa fonction d'evolution donne a t = " << t << " : " << evolution(t);
+    cout << "sa fonction d'evolution donne a t = " << t << " : " << evolution(t,getPara(),getVit());
 }
 
 void Oscillateur::dessine() {
     support->dessine(*this);
 }
+
+
+/*===================== Get ========================*/
+
+Vecteur Oscillateur::getPara() const {
+    return P;
+}
+
+Vecteur Oscillateur::getVit() const {
+    return V;
+}
+
+/*===================== Set ========================*/
+
+void Oscillateur::setPara(Vecteur P) {
+    this->P = P;
+}
+
+void Oscillateur::setVit(Vecteur V) {
+    this->V = V;
+}
+
+/*===================== Functions ========================*/
 
 std::ostream &operator<<(std::ostream &out, Oscillateur const &o) {
     return o.affiche(out);

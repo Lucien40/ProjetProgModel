@@ -15,4 +15,5 @@ HEADERS += \
     TextViewer.h \
     Vecteur.h \
     Chariotpenduleressort.h \
-    PenduleDouble.h
+    PenduleDouble.h \
+    IntegrateurNewmark.h

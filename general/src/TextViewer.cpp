@@ -1,61 +1,25 @@
-//
-// Created by lucien on 4/20/18.
-//
-
 #include "../inc/TextViewer.h"
 
-
 void TextViewer::dessine(Ressort const &aDessiner) {
-    flot << "Ressort:" << '\n';
-
-    flot << "Parametre (longeur): " << aDessiner.getPara() << '\n';
-    flot << "Vitesse          : " << aDessiner.getVit() << '\n';
-    flot << "Viscosite        : " << aDessiner.getViscosite() << '\n';
-    flot << "Masse            : " << aDessiner.getMasse() << '\n';
-    flot << "Raideur          : " << aDessiner.getRaideur() << '\n';
-    flot << "Evo " << aDessiner.evolution(0);
-    flot << "-------------------------" << '\n';
-
+    aDessiner.affiche(flot);
 }
 
 void TextViewer::dessine(System const &aDessiner) {
-    flot << "Syteme: " << '\n';
-    for (auto &o : aDessiner.contenu) {
-        o->dessine();
-    }
+    aDessiner.affiche(flot);
 }
 
 void TextViewer::dessine(Pendule const &aDessiner) {
-    flot << "Pendule:" << '\n';
-
-    flot << "Parametre (angle): " << aDessiner.getPara() << '\n';
-    flot << "Vitesse          : " << aDessiner.getVit() << '\n';
-    flot << "Viscosite        : " << aDessiner.getViscosite() << '\n';
-    flot << "Masse            : " << aDessiner.getMasse() << '\n';
-    flot << "Longeur          : " << aDessiner.getLongeur() << '\n';
-    //flot << "Evo " << aDessiner.evolution(0);
-    flot << "-------------------------" << '\n';
-
+    aDessiner.affiche(flot);
 }
 
 void TextViewer::dessine(const ChariotPenduleRessort &aDessiner){
-    flot << "Parametre (angle): " << aDessiner.getPara() << '\n';
-    flot << "Vitesse          : " << aDessiner.getVit() << '\n';
-    flot << "Viscosite        : " << aDessiner.getLa() << '\n';
-    flot << "Masse 1          : " << aDessiner.getMasse1() << '\n';
-    flot << "Longeur          : " << aDessiner.getLongeur() << '\n';
-    flot << "-------------------------" << '\n';
+    aDessiner.affiche(flot);
 }
 
 void TextViewer::dessine(Oscillateur const &aDessiner) {
     aDessiner.affiche(flot);
-    flot << "-------------------------" << '\n';
 }
 
 void TextViewer::dessine(PenduleDouble const &aDessiner){
-    flot << "Parametre (angle): " << aDessiner.getPara() << '\n';
-    flot << "Vitesse          : " << aDessiner.getVit() << '\n';
-    flot << "Masse 1           : " << aDessiner.getMasse1() << '\n';
-
-    flot << "-------------------------" << '\n';
+    aDessiner.affiche(flot);
 }

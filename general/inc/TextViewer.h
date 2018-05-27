@@ -1,6 +1,3 @@
-//
-// Created by lucien on 4/20/18.
-//
 
 #ifndef PROJETPROGMODEL_TEXTVIEWER_H
 #define PROJETPROGMODEL_TEXTVIEWER_H

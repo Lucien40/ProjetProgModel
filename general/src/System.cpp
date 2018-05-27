@@ -1,14 +1,9 @@
-//
-// Created by huber on 20-Apr-18.
-//
-
 #include "../inc/System.h"
-#include <iostream>
+
+using namespace std;
 
 void System::add(Oscillateur const &o) {
-
     contenu.push_back(o.copie());
-
 }
 
 void System::dessine() {
@@ -20,4 +15,14 @@ void System::evolue(double t, double dt) {
         Int.integre(*o, t, dt);
     }
 }
+
+ostream& System::affiche(ostream &flot) const{
+    flot << "Systeme :" << '\n';
+    for(auto & o : contenu){
+        o->affiche(flot);
+    }
+    return flot;
+}
+
+
 

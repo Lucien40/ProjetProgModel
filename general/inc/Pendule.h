@@ -1,16 +1,14 @@
-//
-// Created by huber on 18-Apr-18.
-//
-
 #ifndef PENDULUM_PENDULE_H
 #define PENDULUM_PENDULE_H
 
-
 #include "Oscillateur.h"
 #include "Constantes.h"
+
 #include <memory>
+#include <cmath>
 
 class Pendule : public Oscillateur {
+
 private:
     double L;
     double m;
@@ -23,8 +21,15 @@ public:
 
 /*-------------------------Constructeur---------------------------*/
 
-    Pendule(SupportADessin *support, Vecteur parametre, Vecteur vitesse, double longeur = 10, double masse = 1,
-            double lamda = 10, Vecteur origine = Vecteur(0, 0, 0), Vecteur plan = Vecteur(1, 0, 0)) :
+    Pendule(SupportADessin *support,
+            Vecteur parametre,
+            Vecteur vitesse,
+            double longeur  = 10,
+            double masse    = 1,
+            double lamda    = 10,
+            Vecteur origine = Vecteur(0, 0, 0),
+            Vecteur plan    = Vecteur(1, 0, 0)) :
+
             Oscillateur(support, parametre, vitesse)
             , L(longeur)
             , m(masse)
@@ -46,21 +51,25 @@ public:
 
 /*----------------------Methodes----------------------------------*/
 
-    virtual Vecteur evolution(double) const override;
+    virtual Vecteur evolution(double t, Vecteur P, Vecteur V) const override;
 
     virtual void dessine() override;
 
+    virtual std::ostream &affiche(std::ostream &flot) const override;
+
 /*----------------------Get---------------------------------------*/
 
-    double getLongeur() const;
+    double getLongeur()     const;
 
-    double getMasse() const;
+    double getMasse()       const;
 
-    double getViscosite() const;
+    double getViscosite()   const;
 
-    Vecteur getPosition() const;
+    Vecteur getPosition()   const;
 
-    Vecteur getOrigine() const;
+    Vecteur getOrigine()    const;
+
+    Vecteur getAxis()       const;
 
 /*-------------------------Set------------------------------------*/
 

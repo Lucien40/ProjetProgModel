@@ -4,6 +4,7 @@
 #include "Vecteur.h"
 #include "Dessinable.h"
 #include "SupportADessin.h"
+
 #include <iostream>
 #include <memory>
 
@@ -13,9 +14,8 @@ class Oscillateur :
 
 protected:
 
-    Vecteur P;
-    Vecteur V;
-
+    Vecteur P; //Vecteur des Parametres
+    Vecteur V; //Vecteur derive de P
 
 public:
 
@@ -37,11 +37,11 @@ public:
 
 /*----------------------Methodes----------------------------------*/
 
-    std::ostream &affiche(std::ostream &out) const;
+    virtual std::ostream & affiche(std::ostream &out) const;
 
     void afficheEvolution(double t) const;
 
-    virtual Vecteur evolution(double t) const = 0;
+    virtual Vecteur evolution(double t, Vecteur P, Vecteur V)const = 0;
 
     virtual void dessine() override; // herite de dessinable
 

@@ -22,14 +22,12 @@ int main() {
     System system(&view);
 
     system.add(pendule);
-    //system.add(ressort);
+    system.add(ressort);
 
 
     for (double t = 0; t < 1; t += 0.1) {
         system.dessine();
-        cout <<"hi";
         system.evolue(t, 0.1);
-
     }
 
 }

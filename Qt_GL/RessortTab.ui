@@ -15,63 +15,12 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QWidget" name="widget" native="true">
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item alignment="Qt::AlignLeft">
-       <widget class="QLabel" name="angleLabel">
-        <property name="text">
-         <string>Angle</string>
-        </property>
-       </widget>
-      </item>
-      <item alignment="Qt::AlignLeft">
-       <widget class="QDoubleSpinBox" name="angleSpinBox">
-        <property name="maximum">
-         <double>365.000000000000000</double>
-        </property>
-        <property name="singleStep">
-         <double>0.100000000000000</double>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QDial" name="angleDial">
-        <property name="minimumSize">
-         <size>
-          <width>100</width>
-          <height>120</height>
-         </size>
-        </property>
-        <property name="maximum">
-         <number>360</number>
-        </property>
-        <property name="invertedAppearance">
-         <bool>true</bool>
-        </property>
-        <property name="invertedControls">
-         <bool>false</bool>
-        </property>
-        <property name="wrapping">
-         <bool>true</bool>
-        </property>
-        <property name="notchTarget">
-         <double>3.000000000000000</double>
-        </property>
-        <property name="notchesVisible">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
     <widget class="QWidget" name="widget_2" native="true">
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item alignment="Qt::AlignLeft">
        <widget class="QLabel" name="vitLabel">
         <property name="text">
-         <string>Angular velocity</string>
+         <string>Starting velocity</string>
         </property>
        </widget>
       </item>
@@ -156,14 +105,14 @@
     <widget class="QWidget" name="widget_4" native="true">
      <layout class="QHBoxLayout" name="horizontalLayout_4">
       <item alignment="Qt::AlignLeft">
-       <widget class="QLabel" name="laLabel">
+       <widget class="QLabel" name="kLabel">
         <property name="text">
-         <string>Air Viscosity</string>
+         <string>Spring Constant</string>
         </property>
        </widget>
       </item>
       <item alignment="Qt::AlignLeft">
-       <widget class="QDoubleSpinBox" name="laSpinBox">
+       <widget class="QDoubleSpinBox" name="kSpinBox">
         <property name="accelerated">
          <bool>true</bool>
         </property>

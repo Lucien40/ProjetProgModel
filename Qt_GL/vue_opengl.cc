@@ -3,13 +3,19 @@
 #include "Pendule.h"
 
 // ======================================================================
+
 void VueOpenGL::dessine(Pendule const& a_dessiner)
 {
 
   QMatrix4x4 matrice;
   matrice.setToIdentity();
+  glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
   matrice.translate(a_dessiner.getPosition().get(0),a_dessiner.getPosition().get(1),a_dessiner.getPosition().get(2));
-  dessineCube(matrice);
+  matrice.scale(pow(a_dessiner.getMasse(),1.0/3));
+  matrice.rotate(-a_dessiner.getPara().get(0)*180/MPI,(a_dessiner.getAxis().get(0)),a_dessiner.getAxis().get(1),a_dessiner.getAxis().get(2));
+  dessineSphere(matrice,0);
+  glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
   matrice.setToIdentity();
   dessineLine(a_dessiner.getOrigine(),a_dessiner.getPosition(),matrice);
@@ -18,12 +24,16 @@ void VueOpenGL::dessine(Pendule const& a_dessiner)
 
 void VueOpenGL::dessine(const ChariotPenduleRessort &a_dessiner){
     QMatrix4x4 matrice;
-   matrice.setToIdentity();
+    matrice.setToIdentity();
     matrice.translate(a_dessiner.getPositionChariot().get(0),a_dessiner.getPositionChariot().get(1),a_dessiner.getPositionChariot().get(2));
+    matrice.scale(pow(a_dessiner.getMasse1(),1.0/3));
     dessineCube(matrice);
 
     matrice.setToIdentity();
     matrice.translate(a_dessiner.getPositionPendule().get(0),a_dessiner.getPositionPendule().get(1),a_dessiner.getPositionPendule().get(2));
+    matrice.scale(pow(a_dessiner.getMasse2(),1.0/3));
+    matrice.rotate(-a_dessiner.getPara().get(1
+                                             )*180/MPI,(a_dessiner.getAxis().get(0)),a_dessiner.getAxis().get(1),a_dessiner.getAxis().get(2));
     dessineCube(matrice);
 
     matrice.setToIdentity();
@@ -35,12 +45,17 @@ void VueOpenGL::dessine(const ChariotPenduleRessort &a_dessiner){
 
 void VueOpenGL::dessine(const PenduleDouble &a_dessiner){
     QMatrix4x4 matrice;
-   matrice.setToIdentity();
+    matrice.setToIdentity();
     matrice.translate(a_dessiner.getPositionM1().get(0),a_dessiner.getPositionM1().get(1),a_dessiner.getPositionM1().get(2));
+    matrice.scale(pow(a_dessiner.getMasse1(),1.0/3));
+    matrice.rotate(-a_dessiner.getPara().get(0)*180/MPI,(a_dessiner.getAxis().get(0)),a_dessiner.getAxis().get(1),a_dessiner.getAxis().get(2));
     dessineCube(matrice);
 
     matrice.setToIdentity();
     matrice.translate(a_dessiner.getPositionM2().get(0),a_dessiner.getPositionM2().get(1),a_dessiner.getPositionM2().get(2));
+    matrice.scale(pow(a_dessiner.getMasse2(),1.0/3));
+    matrice.rotate(-a_dessiner.getPara().get(1
+                                             )*180/MPI,(a_dessiner.getAxis().get(0)),a_dessiner.getAxis().get(1),a_dessiner.getAxis().get(2));
     dessineCube(matrice);
 
     matrice.setToIdentity();
@@ -50,15 +65,19 @@ void VueOpenGL::dessine(const PenduleDouble &a_dessiner){
     dessineLine(a_dessiner.getPositionM2(),a_dessiner.getPositionM1(),matrice);
 }
 
-void VueOpenGL::dessine(Ressort const &aDessiner) {
-    //flot << "Ressort:" << '\n';
+void VueOpenGL::dessine(Ressort const &a_dessiner) {
 
-    //flot << "Parametre (longeur): " << aDessiner.getPara() << '\n';
-    //flot << "Vitesse          : " << aDessiner.getVit() << '\n';
-    //flot << "Viscosite        : " << aDessiner.getViscosite() << '\n';
-    //flot << "Masse            : " << aDessiner.getMasse() << '\n';
-    //flot << "Raideur          : " << aDessiner.getRaideur() << '\n';
-    //flot << "-------------------------" << '\n';
+
+
+    QMatrix4x4 matrice;
+    matrice.setToIdentity();
+    matrice.translate(a_dessiner.getPosition().get(0),a_dessiner.getPosition().get(1),a_dessiner.getPosition().get(2));
+    matrice.scale(pow(a_dessiner.getMasse(),1.0/3));
+    dessineCube(matrice);
+
+    matrice.setToIdentity();
+    dessineLine(a_dessiner.getOrigine(),a_dessiner.getPosition(),matrice);
+
 
 }
 
@@ -96,8 +115,8 @@ void VueOpenGL::init()
    *   - applique la couleur qu'on lui donne
    */
 
-  prog.addShaderFromSourceFile(QGLShader::Vertex,   ":/vertex_shader.glsl");
-  prog.addShaderFromSourceFile(QGLShader::Fragment, ":/fragment_shader.glsl");
+  prog.addShaderFromSourceFile(QOpenGLShader::Vertex,   ":/vertex_shader.glsl");
+  prog.addShaderFromSourceFile(QOpenGLShader::Fragment, ":/fragment_shader.glsl");
 
   /* Identifie les deux attributs du shader de cet exemple
    * (voir vertex_shader.glsl).
@@ -128,7 +147,9 @@ void VueOpenGL::init()
   glEnable(GL_DEPTH_TEST);
   glEnable(GL_CULL_FACE);
 
+  sphere.initialize();
   initializePosition();
+
 }
 
 // ======================================================================
@@ -136,10 +157,11 @@ void VueOpenGL::initializePosition()
 {
   // position initiale
   matrice_vue.setToIdentity();
-  matrice_vue.translate(0.0, 0.0, -20.0);
-  matrice_vue.rotate(90.0, 1.0, 0.0, 0.0);
-  //matrice_vue.rotate(90.0, 1.0, 0.0, 0.0);
-  //matrice_vue.rotate(45.0, 0.0, 0.0, 1.0);
+
+  dessineAxes();
+  matrice_vue.rotate(-90.0, 1.0, 0.0, 0.0);
+  matrice_vue.translate(0.0, 20.0, 2.0);
+
 }
 
 // ======================================================================
@@ -214,14 +236,40 @@ void VueOpenGL::dessineCube (QMatrix4x4 const& point_de_vue)
   glEnd();
 }
 
-void VueOpenGL::dessineLine(Vecteur origine,Vecteur pos,QMatrix4x4 const& point_de_vue){
+void VueOpenGL::dessineAxes(){
+
+    QMatrix4x4 matrice;
+    matrice.setToIdentity();
+    dessineLine(Vecteur(0.0,0.0,0.0),Vecteur(100.0,0.0,0.0),matrice,1.0,0.0,0.0);
+    dessineLine(Vecteur(0.0,0.0,0.0),Vecteur(0.0,100.0,0.0),matrice,0.0,1.0,0.0);
+    dessineLine(Vecteur(0.0,0.0,0.0),Vecteur(0.0,0.0,100.0),matrice,0.0,0.0,1.0);
+
+
+    double size(200);
+
+    for(double i(-size); i<=size; i+=5){
+        dessineLine(Vecteur(size,i,-20.0),Vecteur(-size,i,-20.0),matrice,0.5,0.5,0.5);
+        dessineLine(Vecteur(i,size,-20.0),Vecteur(i,-size,-20.0),matrice,0.5,0.5,0.5);
+    }
+}
+
+
+void VueOpenGL::dessineLine(Vecteur origine,Vecteur pos,QMatrix4x4 const& point_de_vue,double r,double g, double b){
     prog.setUniformValue("vue_modele", matrice_vue * point_de_vue);
-    glLineWidth(10);
+    //glLineWidth(10);
 
     glBegin(GL_LINES);
-    prog.setAttributeValue(CouleurId, 1.0, 1.0, 1.0); // rouge
+    prog.setAttributeValue(CouleurId, r, g, b); // rouge
     prog.setAttributeValue(SommetId,  origine.get(0), origine.get(1), origine.get(2));
     prog.setAttributeValue(SommetId,  pos.get(0), pos.get(1), pos.get(2));
     glEnd();
 
+}
+
+void VueOpenGL::dessineSphere (QMatrix4x4 const& point_de_vue,
+                               double rouge, double vert, double bleu)
+{
+  prog.setUniformValue("vue_modele", matrice_vue * point_de_vue);
+  prog.setAttributeValue(CouleurId, rouge, vert, bleu);  // met la couleur
+  sphere.draw(prog, SommetId);                           // dessine la sphère
 }

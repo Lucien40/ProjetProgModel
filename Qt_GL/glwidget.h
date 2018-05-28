@@ -1,7 +1,7 @@
 #ifndef GLWIDGET_H
 #define GLWIDGET_H
 
-#include <QOpenGLWidget>        // Classe pour faire une fenêtre OpenGL
+#include <QGLWidget>        // Classe pour faire une fenêtre OpenGL
 #include <QTime>            // Classe pour gérer le temps
 #include "vue_opengl.h"
 #include "Pendule.h"
@@ -9,14 +9,14 @@
 
 /*-----------------------------------------------------------------*/
 
-class GLWidget : public QOpenGLWidget
-/* La fenêtre hérite de QOpenGLWidget ;
+class GLWidget : public QGLWidget
+/* La fenêtre hérite de QGLWidget ;
  * les événements (clavier, souris, temps) sont des méthodes virtuelles à redéfinir.
  */
 {
 public:
     GLWidget(QWidget* parent = nullptr)
-        : QOpenGLWidget(parent)
+        : QGLWidget(parent)
         , system(&vue)
     {setMouseTracking(true);}
 
@@ -28,7 +28,7 @@ public:
     VueOpenGL* getVue() ;
 
 private:
-    // Les 3 méthodes clés de la classe QOpenGLWidget à réimplémenter
+    // Les 3 méthodes clés de la classe QGLWidget à réimplémenter
     virtual void initializeGL()                  override;
     virtual void resizeGL(int width, int height) override;
     virtual void paintGL()                       override;

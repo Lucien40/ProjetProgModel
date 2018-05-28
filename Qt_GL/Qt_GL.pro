@@ -4,7 +4,8 @@ CONFIG += c++11
 win32:LIBS += -lopengl32
 
 
-TARGET = ex_05_gl
+TARGET = graphics
+
 
 LIBS += -L../general/inc/ -linc \
 -L../general/src/ -lsrc \

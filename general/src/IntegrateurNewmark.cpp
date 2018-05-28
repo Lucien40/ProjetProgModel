@@ -1,3 +1,4 @@
+
 #include "../inc/IntegrateurNewmark.h"
 
 void IntegrateurNewmark::integre(Oscillateur &o, double t, double dt) const{

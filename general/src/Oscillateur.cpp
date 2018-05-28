@@ -33,11 +33,21 @@ Vecteur Oscillateur::getVit() const {
 /*===================== Set ========================*/
 
 void Oscillateur::setPara(Vecteur P) {
-    this->P = P;
+    try {
+      if (this->P.getDimension() != P.getDimension()) throw out_of_range("mismatched dimensions");
+        this->P = P;
+        } catch (const std::out_of_range &oor) {
+            cerr << "Out of range error: " << oor.what() << endl;
+        }
 }
 
 void Oscillateur::setVit(Vecteur V) {
-    this->V = V;
+    try {
+      if (this->V.getDimension() != V.getDimension()) throw out_of_range("mismatched dimensions");
+        this->V = V;
+        } catch (const std::out_of_range &oor) {
+            cerr << "Out of range error: " << oor.what() << endl;
+        }
 }
 
 /*===================== Functions ========================*/

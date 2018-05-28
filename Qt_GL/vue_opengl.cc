@@ -1,6 +1,6 @@
 #include "vue_opengl.h"
 #include "vertex_shader.h" // Identifiants Qt de nos différents attributs
-#include "Pendule.h"
+
 
 // ======================================================================
 

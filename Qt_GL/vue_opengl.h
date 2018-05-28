@@ -4,11 +4,8 @@
 #include <QOpenGLShaderProgram> // Classe qui regroupe les fonctions OpenGL liées aux shaders
 #include <QMatrix4x4>
 #include "GLSphere.h"
-#include "Ressort.h"
-#include "Pendule.h"
 #include "System.h"
-#include "Chariotpenduleressort.h"
-#include "PenduleDouble.h"
+#include "oscillateurs.h"
 
 class VueOpenGL : public SupportADessin {
  public:

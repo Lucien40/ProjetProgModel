@@ -1,8 +1,7 @@
 
-#include "../inc/Pendule.h"
-#include "../inc/Ressort.h"
-#include "../inc/System.h"
-#include "../inc/TextViewer.h"
+#include "TextViewer.h"
+#include "oscillateurs.h"
+#include "System.h"
 
 #include <iostream>
 

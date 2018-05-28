@@ -37,11 +37,15 @@ ostream &Vecteur::affiche(ostream &sortie) const {
 }
 
 double Vecteur::norme2() const{
+    return sqrt(norme22());
+}
+
+double Vecteur::norme22() const{
     double norm(0);
     for(auto d: data){
         norm += (d*d);
     }
-    return sqrt(norm);
+    return norm;
 }
 
 /*----------------Getters---------------------*/

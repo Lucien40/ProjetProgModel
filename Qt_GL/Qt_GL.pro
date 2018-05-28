@@ -30,10 +30,7 @@ HEADERS += \
     glwidget.h \
     vertex_shader.h \
     vue_opengl.h \
-    ../general/inc/Dessinable.h \
-    ../general/inc/SupportADessin.h \
-    ../general/inc/Pendule.h \
-    ../general/inc/Ressort.h \
+    ../general/inc/oscillateurs \
     ../general/inc/System.h \
     mainwindow.h \
     penduletab.h \

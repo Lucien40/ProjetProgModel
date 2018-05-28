@@ -3,6 +3,7 @@
 
 #include "Oscillateur.h"
 #include "IntegrateurNewmark.h"
+#include "IntegrateurEulerCromer.h"
 
 #include <memory>
 
@@ -24,7 +25,6 @@ public:
     void evolue(double t, double dt);
 
     std::vector<std::unique_ptr<Oscillateur>> contenu; //Casse l'encapsulation mais plus simple
-
 
 private:
 

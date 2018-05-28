@@ -1,6 +1,6 @@
 CONFIG += c++11
 
-TARGET = ex_05_text
+TARGET = textOuput
 
 LIBS += -L../general/inc/ -linc \
 -L../general/src/ -lsrc \
@@ -17,8 +17,3 @@ SOURCES += \
 
 HEADERS += \
     ../general/inc/TextViewer.h \
-    ../general/inc/Dessinable.h \
-    ../general/inc/SupportADessin.h \
-    ../general/inc/Pendule.h \
-../general/inc/Ressort.h \
-../general/inc/System.h

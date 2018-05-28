@@ -30,7 +30,9 @@ public:
 
     std::ostream &affiche(std::ostream &sortie) const;
 
-    double norme2() const ;
+    double norme2()  const;
+
+    double norme22() const;
 
 /*-----------------------------Set----------------------------*/
 

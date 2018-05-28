@@ -16,4 +16,5 @@ HEADERS += \
     Vecteur.h \
     Chariotpenduleressort.h \
     PenduleDouble.h \
-    IntegrateurNewmark.h
+    IntegrateurNewmark.h \
+    oscillateurs.h

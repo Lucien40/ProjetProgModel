@@ -3,11 +3,9 @@
 #define PROJETPROGMODEL_TEXTVIEWER_H
 #include <iostream>
 
-#include "Ressort.h"
-#include "Pendule.h"
 #include "System.h"
-#include "Chariotpenduleressort.h"
-#include "PenduleDouble.h"
+#include "oscillateurs.h"
+
 
 class TextViewer : public SupportADessin {
 public:

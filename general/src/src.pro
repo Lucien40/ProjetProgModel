@@ -1,8 +1,6 @@
 TEMPLATE = lib
               
-CONFIG = staticlib c++11
-              
-
+CONFIG = staticlib c++115
 
 SOURCES += \
     Constantes.cpp \

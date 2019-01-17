@@ -1,44 +1,33 @@
 # PROGRESSION
 
-Format : [fait/à faire] TACHE	Durée (en minutes; remplacer les ??) 
+Format : [fait/à faire] TACHE	Durée (en minutes; remplacer les ??)
 
 Vous pouvez ajouter vos propres tâches si vous le jugez utile
 (p.ex. décomposition plus fine).
 
 
-Fini? | TACHE |   - - - -  - - -  - - - - - - - - - - - - -  Temps en minutes - - - - - - - - -  - - -  - - - - - - -
-:----: | :---: | ------:
-| x | lire complètement le descriptif général                 | 15
-| x | s'inscrire en binôme                                    | 1
-|   | Makefile                                                 |
-|   | Vecteur finie (pleinement opérationnelle et testée)      |
-|   | fichier REPONSES                                         |
-|   | Oscillateur                                             |
-|   | intégrateur d'Euler-Cromer                       	      |
-|   | Pendule                                               	|
-|   | Ressort                                               	|
-|   | Systeme                                               	|
-|   | exercice P10                                           	|
-|   | graphisme: cadre général                              	|
-|   | graphisme: Pendule                                     	|
-|   | OscillateurCouple                                     	|
-|   | PenduleDouble                                         	|
-|   | espace des phases                                     	|
-|   | integrateur Newmark                                   	|
-|   | fichier CONCEPTION                                       |
-|   | fichier README                                        	 |
-|   | fichier NOMS                                             |
-
-
-
------------------------------------------------------------------
-# A FAIRE (PROCHAINE ETAPE)
-
-Mettez ici ce que vous pensez devoir être la ou les 2 prochaines étapes
-pour chacun. Par exemple :
-
-Lucien | Benoit
------ | -----
+Fini? | TACHE |  Temps en minutes
+:----: | :--- | ------:
+ x | lire complètement le descriptif général                 | 15
+ x | s'inscrire en binôme                                    | 1
+ x | Makefile                                                | 60
+ x | Vecteur finie (pleinement opérationnelle et testée)     | 60
+ x | fichier REPONSES                                        | 60
+ x | Oscillateur                                             | 30
+ x | intégrateur d'Euler-Cromer                       	     | 30
+ x | Pendule                                               	 | 60
+ x | Ressort                                               	 | 30
+ x | Systeme                                               	 | 30
+ x | exercice P10                                            |
+ x | graphisme: cadre général                              	 |
+ x | graphisme: Pendule                                      |
+   | OscillateurCouple                                     	 |
+   | PenduleDouble                                         	 |
+   | espace des phases                                     	 |
+   | integrateur Newmark                                   	 |
+   | fichier CONCEPTION                                      |
+   | fichier README                                        	 |
+   | fichier NOMS                                             |
 
 
 ----------------------------------------------------------------------
